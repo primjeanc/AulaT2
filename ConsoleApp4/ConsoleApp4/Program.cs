@@ -18,7 +18,9 @@ namespace ConsoleApp4
             String outroTestePrimitivo;
             bool testComp;
             Boolean testeComp;
-
+            bool? testeBoolNull; //bool? aceita valor nulo alem de verdadeiro/falso
+            int numeroInteiro = 999;
+            long numeroInteiroLongo = 8598215; //numero inteiro maior
 
             var testeFora = string.Empty;
             testeFora = "teste";
