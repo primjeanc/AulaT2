@@ -15,9 +15,10 @@ namespace ConsoleApp4
         static void Main(string[] args)
         {
             string testePrimitivo = string.Empty;
-            String outroTestePrimitivo = string.Empty;
-            bool testeComp = "123" == "123";
-            Boolean testeCompo = "123" == "123";
+            String outroTestePrimitivo;
+            bool testComp;
+            Boolean testeComp;
+
 
             var testeFora = string.Empty;
             testeFora = "teste";
