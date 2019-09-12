@@ -29,7 +29,7 @@ namespace exercitandoWHILEeFOR
           Percebemos, cada vez mais, que o julgamento imparcial das eventualidades talvez venha a ressaltar a relatividade das regras de conduta normativas. Por outro lado, a execução dos pontos do programa estimula a padronização das condições financeiras e administrativas exigidas. O empenho em analisar a crescente influência da mídia acarreta um processo de reformulação e modernização dos relacionamentos verticais entre as hierarquias.";
             var countFind = 0;
             Console.WriteLine("Encontre o número de vezes em que a palavra 'que' aparece no texto:");
-            var palavra = "que"; //Console.ReadLine(); //para buscar qlqr combinacao de 3 palavras
+            var palavra = Console.ReadLine(); //para buscar qlqr combinacao de 3 palavras
             /*
             for (int i = 0; i < (nome.Length-2); i++)
             {
@@ -39,7 +39,9 @@ namespace exercitandoWHILEeFOR
             }
             */
             /**/
+
             int i = 0;
+           if (palavra.Length == 3)
             while (i < (nome.Length-2))
             {
                 var palavraBusca = nome[i].ToString() + nome[i + 1].ToString() + nome[i + 2].ToString();
@@ -50,6 +52,29 @@ namespace exercitandoWHILEeFOR
 
 
             }
+            else if (palavra.Length == 2)
+                while (i < (nome.Length - 1))
+                {
+                    var palavraBusca = nome[i].ToString() + nome[i + 1].ToString();
+
+                    i++;
+                    if (palavra == palavraBusca)
+                        countFind++;
+
+
+                }
+            else
+                while (i < (nome.Length))
+                {
+                    var palavraBusca = nome[i].ToString();
+
+                    i++;
+                    if (palavra == palavraBusca)
+                        countFind++;
+
+
+                }
+                
 
             Console.WriteLine($"Quantidade total de {palavra} {countFind}");
             Console.ReadKey();
