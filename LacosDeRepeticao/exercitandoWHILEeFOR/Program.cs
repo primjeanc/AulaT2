@@ -41,7 +41,7 @@ namespace exercitandoWHILEeFOR
             /**/
 
             int i = 0;
-           if (palavra.Length == 3)
+           if (palavra.Length == 3)// fragmentado em IFs para consultar 1, 2 ou 3 letras juntas ao inves de so 3 letras juntas
             while (i < (nome.Length-2))
             {
                 var palavraBusca = nome[i].ToString() + nome[i + 1].ToString() + nome[i + 2].ToString();
