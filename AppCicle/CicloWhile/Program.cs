@@ -13,14 +13,18 @@ namespace CicloWhile
             ShowInitAppText();
 
             string nome = string.Empty;
+            string genero = string.Empty;
+            string nerd = string.Empty;
             int idade = 0;
 
             while (AskToContinue() == 1)//perguntas comprimidas em metodos
             {
                 nome = AskName();
-                idade = AskAge();
+                idade = AskAge(nome);
+                genero = AskGender();
+                nerd = AskNerd();
             }
-            Console.WriteLine($"Suas informações > Nome: {nome} e sua idade: {idade}");
+            Console.WriteLine($"Suas informações > Você se chama {nome}, possui {idade} anos e disse que seu gênero é {genero}??? Enfim, sobre ser nerd você disse:{nerd}");
             Console.ReadKey();
         }
         /// <summary>
@@ -42,16 +46,16 @@ namespace CicloWhile
             return int.Parse(Console.ReadKey().KeyChar.ToString());//KeyChar le o valor da tecla utilizada,ReadKey le apenas'tecla'.
             //'int.Parse' converte para INT
         }
-        private static int AskAge()//VOID n possui 'return' pois apenas executa a tarefa mas nao guarda resultado
+        private static int AskAge(string nome)//VOID n possui 'return' pois apenas executa a tarefa mas nao guarda resultado
         {
             Console.WriteLine("Quantos anos você tem?");
             int idadeP = int.Parse(Console.ReadLine());//intParse pega a String e retorna numero
             if (idadeP >= 18)
             {
-                Console.WriteLine("Já pode beber então kkkkk");
+                Console.WriteLine($"{ nome} já pode beber então kkkkk");
             }
             else
-                Console.WriteLine("Menor de idade? Melhor tomar um refri, desde que não seja da marca que não podemos citar kkkkk");
+                Console.WriteLine($"{ nome}, tu é menor de idade? Melhor tomar um refri, desde que não seja da marca que não podemos citar kkkkk");
             return idadeP;
         }
         /// <summary>
@@ -62,6 +66,18 @@ namespace CicloWhile
         {
             Console.WriteLine("Qual seu nome?");
             return Console.ReadLine();
+        }
+        private static string AskGender()
+        {
+            Console.WriteLine("Você é homem ou mulher?");
+            return Console.ReadLine();
+
+        }
+        private static string AskNerd()
+        {
+            Console.WriteLine("Você é nerd?");
+            return Console.ReadLine();
+
         }
     }
 }
