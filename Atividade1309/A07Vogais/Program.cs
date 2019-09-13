@@ -13,12 +13,13 @@ namespace A07Vogais
             TextoEntrada();
             var textoV = string.Empty;
             textoV = Console.ReadLine().ToLower();
-            int contA = 0;
-            int contE = 0;
-            int contI = 0;
-            int contO = 0;
-            int contU = 0;
+            int contA = textoV.Split('a').Length - 1;
+            int contE = textoV.Split('e').Length - 1;
+            int contI = textoV.Split('i').Length - 1;
+            int contO = textoV.Split('o').Length - 1;
+            int contU = textoV.Split('u').Length - 1;
 
+            /*  versao mais burra mas que atende acentuação
             for (int i = 0; i < textoV.Length; i++)
             {
                 Console.WriteLine("Informe o caracter/vogal a ser contado:");
@@ -47,7 +48,7 @@ namespace A07Vogais
                          {
                              contU++;
                          }
-            }
+            }*/
 
             Console.WriteLine("Segue relação de vogais informadas na palavra/texto:}");
             Console.WriteLine($"a:{contA}");
