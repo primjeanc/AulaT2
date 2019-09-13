@@ -12,7 +12,7 @@ namespace A07Vogais
         {
             TextoEntrada();
             var textoV = string.Empty;
-            textoV = Console.ReadLine();
+            textoV = Console.ReadLine().ToLower();
             int contA = 0;
             int contE = 0;
             int contI = 0;
@@ -21,37 +21,43 @@ namespace A07Vogais
 
             for (int i = 0; i < textoV.Length; i++)
             {
+                Console.WriteLine("Informe o caracter/vogal a ser contado:");
 
-                if (textoV[i].ToString() == "a")
+
+                if (textoV[i].ToString() == "a"|| textoV[i].ToString() == "á"|| textoV[i].ToString() == "â"|| textoV[i].ToString() == "ã")
                     contA++;
 
                 else
-                    if (textoV[i].ToString() == "e")
+                    if (textoV[i].ToString() == "e"|| textoV[i].ToString() == "é"|| textoV[i].ToString() == "ê")
                 {
                     contE++;
                      }
                 else
-                        if (textoV[i].ToString() == "i")
+                        if (textoV[i].ToString() == "i"|| textoV[i].ToString() == "í")
                 {
                     contI++;
                           }
                 else
-                        if (textoV[i].ToString() == "o")
+                        if (textoV[i].ToString() == "o"|| textoV[i].ToString() == "ó"|| textoV[i].ToString() == "ô"|| textoV[i].ToString() == "õ")
                         {
                               contO++;
                         }
                 else
-                        if (textoV[i].ToString() == "u")
+                        if (textoV[i].ToString() == "u"|| textoV[i].ToString() == "ú"|| textoV[i].ToString() == "ü")
                          {
                              contU++;
                          }
             }
+
             Console.WriteLine("Segue relação de vogais informadas na palavra/texto:}");
             Console.WriteLine($"a:{contA}");
             Console.WriteLine($"e:{contE}");
             Console.WriteLine($"i:{contI}");
             Console.WriteLine($"o:{contO}");
             Console.WriteLine($"u:{contU}");
+            int somaVog;
+            somaVog = (contA + contE + contI + contO + contU);
+            Console.WriteLine($"Total de vogais:{somaVog}");
             TextoSaida();
         }
         public static void TextoEntrada()

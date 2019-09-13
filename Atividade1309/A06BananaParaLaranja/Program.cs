@@ -11,13 +11,7 @@ namespace A06BananaParaLaranja
         static void Main(string[] args)
         {
             TextoEntrada();
-            var textoBanana = string.Empty;
-            var textoLaranja = string.Empty;
-            textoBanana = Console.ReadLine();
-            textoLaranja = (textoBanana.Replace("banana", "laranja").Replace("Banana","Laranja"));
-            
-            Console.WriteLine("Entendi, mas como eu prefiro laranjas, tomei a libertade de corrigir seu texto.");
-            Console.WriteLine(textoLaranja);
+            TrocaFruta();
             TextoSaida();
 
         }
@@ -31,6 +25,16 @@ namespace A06BananaParaLaranja
             Console.WriteLine("-----------------------------------------");
             Console.WriteLine("Aperte qualquer tecla para finalizar");
             Console.ReadKey();
+        }
+        public static void TrocaFruta()
+        {
+            var textoBanana = string.Empty;
+            var textoLaranja = string.Empty;
+            textoBanana = Console.ReadLine();
+            textoLaranja = (textoBanana.Replace("banana", "laranja").Replace("Banana", "Laranja"));
+
+            Console.WriteLine("Entendi, mas como eu prefiro laranjas, tomei a libertade de corrigir seu texto.");
+            Console.WriteLine(textoLaranja);
         }
     }
 }

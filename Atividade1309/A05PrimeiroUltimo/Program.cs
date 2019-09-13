@@ -17,7 +17,7 @@ namespace A05PrimeiroUltimo
             string segundoC;
             primeiroC = textoCompleto[0].ToString();
             segundoC = textoCompleto[(textoCompleto.Length -1)].ToString();
-            Console.WriteLine($"O primeiro caractere informado foi: '{primeiroC}' e o segundo caractere foi: '{segundoC}'");
+            Console.WriteLine($"O primeiro caractere informado foi: '{primeiroC}' e o último caractere foi: '{segundoC}'");
             TextoSaida();
         }
         public static void TextoEntrada()
