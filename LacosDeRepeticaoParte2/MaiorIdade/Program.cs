@@ -10,16 +10,18 @@ namespace ListaCarros
     {
         static void Main(string[] args)
         {
-            CarSplitList();
+            PesSplitList();
         }
-        private static void CarSplitList()
+        private static void PesSplitList()
         {
-            var conteudo = "carro:Gol,marca:volkswagen,ano:2000;carro:Jetta,marca:volkswagen,ano:2012;carro:Sportage,marca:Kia,ano:2011;carro:Hb20,marca:hyundai,ano:2015";
+            var conteudo = "nome:Felipe,idade:27;nome:Giomar,idade:17;nome:Edson,idade:19;nome:Ericledson,idade:75;nome:Junior,idade:45";
             var listaDeInformacoes = conteudo.Split(';');
 
             Console.WriteLine("Cadastrados no sistema:");
             foreach (var item in listaDeInformacoes)
             {
+                //if (item.Split(',')[1] >= 18)
+            
                 Console.WriteLine(item.Split(',')[0]);
             }
             Console.WriteLine("Informe um nome do sistema:");
@@ -28,14 +30,14 @@ namespace ListaCarros
             foreach (var item in listaDeInformacoes)
             {
                 var informacoesSplit = item.Split(',');
-                var carro = informacoesSplit[0].Split(':')[1];
-                var marca = informacoesSplit[1].Split(':')[1];
-                var fabric = informacoesSplit[2].Split(':')[1];
+                var nome = informacoesSplit[0].Split(':')[1];
+                var idade = informacoesSplit[1].Split(':')[1];
+                
 
-                if (carro == nomeBusca)
+                if (nome == nomeBusca)
                 {
-                    Console.WriteLine($"O {carro} da marca {marca} foi fabricado em {fabric}.");
-                }                
+                    Console.WriteLine($"O {nome} possui {idade} anos.");
+                }
             }
             Console.ReadKey();
         }
