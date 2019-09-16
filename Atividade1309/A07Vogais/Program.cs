@@ -13,7 +13,7 @@ namespace A07Vogais
             TextoEntrada();
             var textoV = string.Empty;
             textoV = Console.ReadLine().ToLower();
-            int contA = textoV.Split('a').Length - 1;
+            int contA = textoV.Split('a').Length - 1;//split para encontrar e contar caractere
             int contE = textoV.Split('e').Length - 1;
             int contI = textoV.Split('i').Length - 1;
             int contO = textoV.Split('o').Length - 1;
