@@ -67,35 +67,45 @@ namespace ForeachNaLista
         {
             var minhaLista = new List<double>();
 
-            minhaLista.Add(10003.75);
-            minhaLista.Add(5004.98);
-            minhaLista.Add(12002.42);
-            minhaLista.Add(15000.05);
+            minhaLista.Add(3.75);
+            minhaLista.Add(4.98);
+            minhaLista.Add(2.42);
+            minhaLista.Add(110.05);
             Console.WriteLine("Lista Monetário:");
             minhaLista.ForEach(nDec => Console.WriteLine(nDec.ToString("C") + 
-                " " +FormataNumeroDecimalEmDolar(nDec) + " " + FormataRealIene(nDec) + " " 
-                + FormataRealEuro(nDec)+" euro  |" + " "
-                + FormataRealBitCoin(nDec) + " BitCoin" + " "
-                + MoneyCulture(nDec,"eu-EN",42000) + " BitCoin"));
-            //minhaLista.ForEach(nDec => Console.WriteLine(nDec.ToString("C2",CultureInfo.CreateSpecificCulture("ja-JP"))));//japones
-            
-        }
+                " " + MoneyCulture(nDec, "en-US", 4.5008) + " | " 
+                + MoneyCulture(nDec, "ja-JP",0.038) + " | "
+                + MoneyCulture(nDec, "eu-EN", 4.70) + " euro  |" + " "                
+                + FormataRealBitCoin(nDec)));         
+        }/*
         private static string FormataNumeroDecimalEmDolar(double meuNumero)
         {
             return (meuNumero / 4.5008).ToString("C", CultureInfo.CreateSpecificCulture("en-US"));//dolar
-        }
+        }*//*
         private static string FormataRealIene(double meuNumero)
         {
-            return (meuNumero * 26.39).ToString("C", CultureInfo.CreateSpecificCulture("ja-JP"));//Iene japones
-        }
+            return (meuNumero / 0.038).ToString("C2", CultureInfo.CreateSpecificCulture("ja-JP"));//Iene japones
+        }*//*
         private static string FormataRealEuro(double meuNumero)
         {
-            return (meuNumero / 5.10).ToString("C", CultureInfo.CreateSpecificCulture("eu-EN"));//euro
-        }
+            return (meuNumero / 4.70).ToString("C", CultureInfo.CreateSpecificCulture("eu-EN"));//euro
+        }*/
+        /// <summary>
+        /// Metodo que converte moeda Real para BitCoin
+        /// </summary>
+        /// <param name="meuNumero"></param>
+        /// <returns></returns>
         private static string FormataRealBitCoin(double meuNumero)
         {
-            return (meuNumero / 41824.47).ToString("C2", CultureInfo.CreateSpecificCulture("eu-EN"));//return (meuNumero / 41824.47).ToString()
+            return (meuNumero / 41824.47).ToString("C10").Replace("R$", "BTC");//return (meuNumero / 41824.47).ToString()
         }
+        /// <summary>
+        /// Método que converte moeda Real para outras moedas Dolar/Iene/Euro
+        /// </summary>
+        /// <param name="meuNumero"></param>
+        /// <param name="cultura"></param>
+        /// <param name="diferenca"></param>
+        /// <returns></returns>
         private static string MoneyCulture(double meuNumero, string cultura, double diferenca)
         {
             return (meuNumero / diferenca).ToString("C2", CultureInfo.CreateSpecificCulture(cultura));
