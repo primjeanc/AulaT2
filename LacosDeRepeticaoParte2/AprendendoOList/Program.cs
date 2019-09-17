@@ -15,17 +15,12 @@ namespace AprendendoOList
             "Motocicleiton"
         };
         static void Main(string[] args)
-        {
-            //ListaInformacoes();
-            //var listaOri = minhaListaPulgmatica.Count();
+        {            
+            var listaOri = minhaListaPulgmatica.Count();
+            Console.Clear();
             AdicionarItensALista();
-            //var listaAtual = minhaListaPulgmatica.Count();
-            /*
-            for (int i = listaOri; i < listaAtual; i++)
-            {
-                Console.WriteLine(minhaListaPulgmatica.ElementAt(i));
-            }*/
-            ListaInformacoes();
+
+            ListaInformacoes(listaOri);
             Console.ReadKey();
         }
 
@@ -35,10 +30,10 @@ namespace AprendendoOList
         private static void AdicionarItensALista()
         {
             Console.Clear();
-            Console.WriteLine("Informe um nome:");
+            Console.WriteLine("Informe o nome a ser cadastrado:");
             minhaListaPulgmatica.Add(Console.ReadLine());
-            //Console.WriteLine($"{minhaListaPulgmatica.LastOrDefault()} adicionado a lista");
-            //LastOrDefault          
+            Console.WriteLine($"{minhaListaPulgmatica.LastOrDefault()} adicionado a lista");
+            //LastOrDefault chama ultimo valor atual da lista         
 
             Console.WriteLine("Deseja informar mais valores? sim (S) /não (N)");
             if (Console.ReadKey().KeyChar.ToString().ToLower() == "s")
@@ -48,12 +43,21 @@ namespace AprendendoOList
         /// <summary>
         /// Lista original
         /// </summary>
-        private static void ListaInformacoes()
+        private static void ListaInformacoes(int listaOri)
         {
             Console.Clear();
-            Console.WriteLine("Nomes adicionados alista");
+            Console.WriteLine("Lista Atual:");
             foreach (var item in minhaListaPulgmatica)
-                Console.WriteLine($"{item} foi adicionado");
+                Console.WriteLine(item);
+            
+            var listaAtual = minhaListaPulgmatica.Count();
+
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("Adicionados recentemente:");
+            for (int i = listaOri; i < listaAtual; i++)
+            {
+                Console.WriteLine(minhaListaPulgmatica.ElementAt(i));
+            }
         }
     }
 }
