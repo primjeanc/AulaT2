@@ -42,8 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalculoDeArea.cs" />
-    <Compile Include="Cervejas.cs" />
-    <Compile Include="MontadorasCarros.cs" />
+    <Compile Include="ListaDeMarcas.cs" />
     <Compile Include="MyFuckingTree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
