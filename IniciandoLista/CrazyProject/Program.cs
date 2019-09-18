@@ -6,39 +6,46 @@ using System.Threading.Tasks;
 
 namespace CrazyProject
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            MinhaArvoreFeia();
-            CalculoAQuad();
-            ListaCervejas();
+
         }
         public static void MinhaArvoreFeia()
         {
-            Console.WriteLine("     |");
-            Console.WriteLine("    (|)");
-            Console.WriteLine("   ((|))");
-            Console.WriteLine(" ()()|()()");
-            Console.WriteLine("(()()|()())");
-            Console.WriteLine(" ()()|()()");
-            Console.WriteLine("     |");
-            Console.WriteLine("     |");
-            Console.WriteLine(" __//|\\__");
+            Console.Clear();
 
-            Console.ReadKey();
+            Console.WriteLine(@"  
+                 @@@@,
+       ,,,.   ,@@@@@@/@@,  .oo8888o.
+    ,&%%&%&&%,@@@@@/@@@@@@,8888\88/8o
+   ,%&\%&&%&&%,@@@\@@@/@@@88\88888/88'
+   %&&%&%&/%&&%@@\@@/ /@@@88888\88888'        
+   %&&%/ %&%%&&@@\ V /@@' `88\8 `/88'         _._
+   `&%\ ` /%&'    |.|        \ '|8'        .-'66||        ,;'
+       |o|        | |         | |         (O  ,:|/.----..;'
+       |.|        | |         | |           `=' \_  ____  |      
+       | |        | |         | |                |||   |||
+    \\/ ._\//_/__/  ,\_//__\\/.  \_//__/_        mm'   mm'        |");
+     
+            Limpeza();
+
         }
         public static void CalculoAQuad()
         {
+            Console.Clear();
             Console.WriteLine("Cálculo de área do Quadrado");
             Console.WriteLine("Informe dimensão:");
             var lado = double.Parse(Console.ReadLine());
             var areaT = lado * lado;
             Console.WriteLine($"Área Total {areaT} m²");
-            Console.ReadKey();
+            Limpeza();
+
         }
-        private static void ListaCervejas()
+        public static void ListaCervejas()
         {
+            Console.Clear();
             var minhaLista = new List<string>();
 
             minhaLista.Add("Budweiser");
@@ -48,7 +55,29 @@ namespace CrazyProject
             minhaLista.Add("Original");
 
             minhaLista.ForEach(i => Console.WriteLine(i)); //foreach simplificado para lista/coleções
+            Limpeza();
+
+        }
+        public static void ListaCarros()
+        {
+            Console.Clear();
+            var minhaLista = new List<string>();
+
+            minhaLista.Add("Toyota");
+            minhaLista.Add("Honda");
+            minhaLista.Add("Ford");
+            minhaLista.Add("Hyundai");
+            minhaLista.Add("Nissan");
+            minhaLista.Add("Volkswagen");
+
+            minhaLista.ForEach(i => Console.WriteLine(i)); //foreach simplificado para lista/coleções
+            Limpeza();
+        }
+        public static void Limpeza()
+        {
+            Console.WriteLine("Aperte qualquer tecla para continuar");
             Console.ReadKey();
+            Console.Clear();
         }
         /*Crazy project - Um projeto
 

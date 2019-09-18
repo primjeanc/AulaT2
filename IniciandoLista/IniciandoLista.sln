@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConversorMonetario", "Conve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyProject", "CrazyProject\CrazyProject.csproj", "{AFCA74A8-FF16-4952-AC17-6BA049EEF779}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseApp", "BaseApp\BaseApp.csproj", "{A7A24A18-A702-44CD-941A-39645125F898}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhaBiblicoteca", "MinhaBiblicoteca\MinhaBiblicoteca.csproj", "{035593BF-30EA-4926-8D25-6A57EBB6882B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{AFCA74A8-FF16-4952-AC17-6BA049EEF779}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFCA74A8-FF16-4952-AC17-6BA049EEF779}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFCA74A8-FF16-4952-AC17-6BA049EEF779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7A24A18-A702-44CD-941A-39645125F898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7A24A18-A702-44CD-941A-39645125F898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7A24A18-A702-44CD-941A-39645125F898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7A24A18-A702-44CD-941A-39645125F898}.Release|Any CPU.Build.0 = Release|Any CPU
+		{035593BF-30EA-4926-8D25-6A57EBB6882B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{035593BF-30EA-4926-8D25-6A57EBB6882B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{035593BF-30EA-4926-8D25-6A57EBB6882B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{035593BF-30EA-4926-8D25-6A57EBB6882B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
