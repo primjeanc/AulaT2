@@ -29,19 +29,16 @@ namespace BaseApp
             switch (escolha)
             {
                 case "1":
-                    { MyFuckingTree.StupidTree();
-                        
-                    }
-                    
+                    { MyFuckingTree.StupidTree(); } 
                     break;
                 case "2":
                     { CalculoArea(); MenuClasses(); }
                     break;
                 case "3":
-                    //var minhaClasseArvore =  new MyFuckingTree();
+                    { Cervejas.ClasseListaCervejas(); }                    
                     break;
                 case "4":
-                    //CrazyProject.Program.ListaCarros();
+                    { MontadorasCarros.ClasseListaCarros(); }
                     break;
                 case "5":
                     {
