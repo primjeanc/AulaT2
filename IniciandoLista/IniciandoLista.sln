@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseApp", "BaseApp\BaseApp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhaBiblicoteca", "MinhaBiblicoteca\MinhaBiblicoteca.csproj", "{035593BF-30EA-4926-8D25-6A57EBB6882B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcessandoDllDoAmiguinho", "AcessandoDllDoAmiguinho\AcessandoDllDoAmiguinho.csproj", "{A7779F6B-8ECF-4A8A-9C96-D74FC673DCF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{035593BF-30EA-4926-8D25-6A57EBB6882B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{035593BF-30EA-4926-8D25-6A57EBB6882B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{035593BF-30EA-4926-8D25-6A57EBB6882B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7779F6B-8ECF-4A8A-9C96-D74FC673DCF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7779F6B-8ECF-4A8A-9C96-D74FC673DCF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7779F6B-8ECF-4A8A-9C96-D74FC673DCF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7779F6B-8ECF-4A8A-9C96-D74FC673DCF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
