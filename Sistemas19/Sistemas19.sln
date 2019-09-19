@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendSys", "FriendSys\FriendSys.csproj", "{21A1542E-0144-4FCB-AD62-D701EF5F809E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataInfo", "DataInfo\DataInfo.csproj", "{863A4A08-A5D1-4EA3-90E4-CF5C844DAF6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarSys", "CarSys\CarSys.csproj", "{6356150B-BA37-4C66-962E-C01EFE44CF57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21A1542E-0144-4FCB-AD62-D701EF5F809E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A1542E-0144-4FCB-AD62-D701EF5F809E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A1542E-0144-4FCB-AD62-D701EF5F809E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A1542E-0144-4FCB-AD62-D701EF5F809E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{863A4A08-A5D1-4EA3-90E4-CF5C844DAF6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{863A4A08-A5D1-4EA3-90E4-CF5C844DAF6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{863A4A08-A5D1-4EA3-90E4-CF5C844DAF6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{863A4A08-A5D1-4EA3-90E4-CF5C844DAF6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6356150B-BA37-4C66-962E-C01EFE44CF57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6356150B-BA37-4C66-962E-C01EFE44CF57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6356150B-BA37-4C66-962E-C01EFE44CF57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6356150B-BA37-4C66-962E-C01EFE44CF57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A4E73BE-5965-4842-8CF1-D484C54F7A73}
+	EndGlobalSection
+EndGlobal
