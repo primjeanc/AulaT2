@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataInfo", "DataInfo\DataIn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarSys", "CarSys\CarSys.csproj", "{6356150B-BA37-4C66-962E-C01EFE44CF57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevisaoGeral", "RevisaoGeral\RevisaoGeral.csproj", "{B847D6ED-AC02-4CE6-A684-140DBBADFDDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6356150B-BA37-4C66-962E-C01EFE44CF57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6356150B-BA37-4C66-962E-C01EFE44CF57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6356150B-BA37-4C66-962E-C01EFE44CF57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B847D6ED-AC02-4CE6-A684-140DBBADFDDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B847D6ED-AC02-4CE6-A684-140DBBADFDDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B847D6ED-AC02-4CE6-A684-140DBBADFDDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B847D6ED-AC02-4CE6-A684-140DBBADFDDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

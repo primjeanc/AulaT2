@@ -14,10 +14,15 @@ namespace DataInfo
         //declarando a lista fora "global" ela se mantem ao inves de resetar a cada entrada de cadastro
         static void Main(string[] args)
         {
-
+            
+            /*
             ListaPessoa = Cadastramento();
-            Listagem(ListaPessoa);
+            Listagem(ListaPessoa);*/
 
+        }
+        static void Hebeficar(int idade)
+        {
+            idade = 16000;
         }
         /// <summary>
         /// Cadastro de informações
@@ -71,6 +76,7 @@ namespace DataInfo
         public static void Listagem(List<Pessoa> dataInfo)
         {
             Console.Clear();
+            Console.WriteLine("Lista Atualizada:");
             dataInfo.ForEach(i => Console.WriteLine($"Nome: {i.Name} | Genero: {i.Gender} | Idade: {i.Age} anos| Altura:{i.Height} m"));
             Console.ReadKey();
         }

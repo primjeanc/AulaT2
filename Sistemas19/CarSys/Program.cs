@@ -14,10 +14,16 @@ namespace CarSys
         static void Main(string[] args)
         {
             Console.WriteLine("Aperte [1] para novo cadastro.");
-
-            ListaCarro = CadastraCarro(); //carInfo recebe dados de [Cadastro]
-            
+            var entrada = int.Parse(Console.ReadKey().KeyChar.ToString());
+            if (entrada == 1)
+            {
+                ListaCarro = CadastraCarro();
+            }
+            else
+                Console.WriteLine("Pressione qualquer tecla para finalizar...");
+            //ListaCarro = CadastraCarro(); //carInfo recebe dados de [Cadastro]            
             Listagem(ListaCarro); //[listagem] busca informacoes de carInfo
+            Console.WriteLine("Pressione qualquer tecla para finalizar...");
         }
         /// <summary>
         /// Metodo de Lista para cadastro de veiculos
