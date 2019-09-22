@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using LocacaoBiblioteca.Controller;
 using LocacaoBiblioteca.Model;
 
+
 namespace InterfaceBiblioteca
 {
     class Program
@@ -86,18 +87,24 @@ namespace InterfaceBiblioteca
             
             Console.WriteLine("Informe seu login e senha para acessar o sistema:");
 
-            Console.WriteLine("Login");
+            Console.WriteLine("Login: ");
             var loginDoUsuario = Console.ReadLine();
-            Console.WriteLine("Senha");
+            Console.WriteLine("Senha: ");
             var senhaDoUsuario = Console.ReadLine();
 
-            UsuarioController usuarioController = new UsuarioController();//esse cara esta RESETANDO A LISTA NA HORA DE VALIDAR NOVOSO USUARIOS
+            //UsuarioController usuarioController = new UsuarioController();//esse cara esta RESETANDO A LISTA NA HORA DE VALIDAR NOVOSO USUARIOS
             //o sistema cadastra usuarios e lista eles, mas quando vai LOGAR, os novos logins nao funcionam
-            Usuario usuario = new Usuario();//objeto usuario recebe Classe Usuario inicializada 'new'
+            /*
+             * Usuario usuario = new Usuario();//objeto usuario recebe Classe Usuario inicializada 'new'
             usuario.Login = loginDoUsuario;//atribui Login ao loginDoUsuario
-            usuario.Senha = senhaDoUsuario;//item para senhaDo...
+            usuario.Senha = senhaDoUsuario;
+            *///item para senhaDo...
 
-            return usuarioController.LoginSistema(usuario);
+            return usuarios.LoginSistema(new Usuario()
+            {
+                Login = loginDoUsuario,
+                Senha = senhaDoUsuario
+            });
             
         }
         private static void ListagemLivros()
