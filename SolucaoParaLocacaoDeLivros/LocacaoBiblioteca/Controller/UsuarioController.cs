@@ -12,6 +12,7 @@ namespace LocacaoBiblioteca.Controller
     /// </summary>
     public class UsuarioController
     {
+        private int IdContador = 1;//PRIVATE para impedir o programador adicionar ou alterar o ID de fora da classe
         public UsuarioController()
         {
             ListaDeUsuarios = new List<Usuario>();// CONSTRUTOR
@@ -20,21 +21,22 @@ namespace LocacaoBiblioteca.Controller
                 Login = "Admin",
                 Senha = "Admin",
                 Ativo = true,
-                Id = 000001
+                Id = IdContador++//contador++ incrementa apos a acao . ID comecou no 1, salvaria 1, e mudaria a espera para 2.
+                //"++contador" incrementa antes. ID comecou no 1, salvaria 2
             });
             ListaDeUsuarios.Add(new Usuario()
             {
                 Login = "HBSIS",
                 Senha = "PROWAY",
                 Ativo = true,
-                Id = 000002
+                Id = IdContador++
             });
             ListaDeUsuarios.Add(new Usuario()
             {
                 Login = "200902",
                 Senha = "123456",
                 Ativo = true,
-                Id = 000003
+                Id = IdContador++
             });
         }
         
@@ -55,22 +57,29 @@ namespace LocacaoBiblioteca.Controller
             else
                 return false;*/// antigo teste
         }
-        public List<Usuario> ListaDeUsuarios { get; set; }//lista de usuarios na classe
-        public void AdicionaUsuario()//cadastro de usuario na lista criada acima "ListaDeUsuarios"
+        private List<Usuario> ListaDeUsuarios { get; set; }//lista PRIVADA de usuarios na classe, sera chamada em um metodo publico para mostrar no programa sem alterar
+        public void AdicionaUsuario(Usuario usuario)//cadastro de usuario na lista criada acima "ListaDeUsuarios"
         {
-            Usuario usuario = new Usuario();// inicia objeto'usuario' (lista)
-            Console.WriteLine("Login a ser cadastrado:");
-            usuario.Login = Console.ReadLine();
-            Console.WriteLine("Senha a ser cadastrada:");
-            usuario.Senha = Console.ReadLine();
-            ListaDeUsuarios.Add(new Usuario() //lista (um ou mais objetos)
-            {
-                Login = usuario.Login,
-                Senha = usuario.Senha,
-                Ativo = true,
-                Id = ListaDeUsuarios.Count+1
-            });
-
+            usuario.Id = IdContador++;
+            ListaDeUsuarios.Add(usuario);
+        }
+        /// <summary>
+        /// Metodo publico pra mostrar ListaDeUsuarios ATIVOS(que esta privada na CLASSE para evitar acesso externo)
+        /// </summary>
+        /// <returns></returns>
+        public List<Usuario> RetornaListaDeUsuarios()
+        {
+            return ListaDeUsuarios.Where(x => x.Ativo).ToList<Usuario>();
+        }
+        /// <summary>
+        /// Metodo que desativa um regstro de usuario cadastrado em nossa lista
+        /// </summary>
+        /// <param name="intentificadoID">intendifica usuario a ser desativado</param>
+        public void RemoverUsuarioPorID(int intentificadoID)
+        {
+            //aqui usamos FirstOrDefault para localiza nosso usuario dentro da lista
+            //com isso conseguimos acessar as propriedades dele e desativar o registro
+            ListaDeUsuarios.FirstOrDefault(x => x.Id == intentificadoID).Ativo = false;
         }
     }
 }
