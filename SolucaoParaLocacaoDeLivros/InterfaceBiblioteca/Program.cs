@@ -11,8 +11,8 @@ namespace InterfaceBiblioteca
 {
     class Program
     {              
-        static LivroController livros = new LivroController();
-        static UsuarioController usuarios = new UsuarioController();
+        static LivroController livroController = new LivroController();//Instanciamos "Carregamos para memoria, nosso controlador de livros
+        static UsuarioController usuarioController = new UsuarioController();
 
         static void Main(string[] args)
         {
@@ -63,7 +63,7 @@ namespace InterfaceBiblioteca
                         CadastraUsuario(); Console.ReadKey();
                         break;
                     case 4:
-                        ListagemLivros(); Console.ReadKey();//ainda nao cadastra livros
+                        CadastraLivro(); 
                         break;
                     case 5:
                         TrocaDeUsuario(); 
@@ -100,7 +100,7 @@ namespace InterfaceBiblioteca
             usuario.Senha = senhaDoUsuario;
             *///item para senhaDo...
 
-            return usuarios.LoginSistema(new Usuario()
+            return usuarioController.LoginSistema(new Usuario()
             {
                 Login = loginDoUsuario,
                 Senha = senhaDoUsuario
@@ -109,19 +109,35 @@ namespace InterfaceBiblioteca
         }
         private static void ListagemLivros()
         {
-            livros.ListaDeLivros.ForEach(l => Console.WriteLine($"ID: {l.Id} -- Nome: {l.Nome}"));//imprime todos os livros cadastrados
+            livroController.ListaDeLivros.ForEach(l => Console.WriteLine($"ID: {l.Id} -- Nome: {l.Nome}"));//imprime todos os livros cadastrados
         }
         private static void ListagemUsuarios()
         {
             //mostra a lista de usuarios ja cadastrados
             Console.Clear();
-            usuarios.ListaDeUsuarios.ForEach(i => Console.WriteLine($"ID: {i.Id} -- Login: {i.Login}"));
+            usuarioController.ListaDeUsuarios.ForEach(i => Console.WriteLine($"ID: {i.Id} -- Login: {i.Login}"));
             Console.ReadKey();
         }
         private static void CadastraUsuario()
         {
-            usuarios.AdicionaUsuario();
+            usuarioController.AdicionaUsuario();
         }
 
+        /// <summary>
+        /// Metodo que adiciona ("cadastra") novos livros 
+        /// </summary>
+        private static void CadastraLivro()
+        {
+            Console.WriteLine("Cadastrar livro em sistema:");
+            Console.WriteLine("Informe o título de livro");
+            var nomeDoLivro = Console.ReadLine();
+            livroController.AdicionarLivro(new Livro()//livroControler objeto(variavel) que recebeu a CLASSE LISTA LivroController
+            {
+                Nome = nomeDoLivro ,
+                Id = livroController.ListaDeLivros.Count+1
+            });
+            Console.WriteLine("Livro cadastrado com sucesso.");
+            Console.ReadKey();
+        }
     }
 }

@@ -26,6 +26,14 @@ namespace LocacaoBiblioteca.Controller
         }           
 
         public List<Livro> ListaDeLivros { get; set; }//class tipo LISTA para guardar os Livros
+        /// <summary>
+        /// Metodo que adiciona livros em nossa lista ja instanciada criada dentro do construtor
+        /// </summary>
+        /// <param name="paralivro"></param>
+        public void AdicionarLivro(Livro paralivro)
+        {
+            ListaDeLivros.Add(paralivro);
+        }
        
 
 

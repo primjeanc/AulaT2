@@ -14,7 +14,7 @@ namespace LocacaoBiblioteca.Controller
     {
         public UsuarioController()
         {
-            ListaDeUsuarios = new List<Usuario>();
+            ListaDeUsuarios = new List<Usuario>();// CONSTRUTOR
             ListaDeUsuarios.Add(new Usuario() //lista (um ou mais objetos)
             {
                 Login = "Admin",
@@ -56,7 +56,7 @@ namespace LocacaoBiblioteca.Controller
                 return false;*/// antigo teste
         }
         public List<Usuario> ListaDeUsuarios { get; set; }//lista de usuarios na classe
-        public void AdicionaUsuario()
+        public void AdicionaUsuario()//cadastro de usuario na lista criada acima "ListaDeUsuarios"
         {
             Usuario usuario = new Usuario();// inicia objeto'usuario' (lista)
             Console.WriteLine("Login a ser cadastrado:");
