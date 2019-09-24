@@ -12,32 +12,12 @@ namespace LocacaoBiblioteca.Controller
     /// </summary>
     public class UsuarioController
     {
-        private int IdContador = 1;//PRIVATE para impedir o programador adicionar ou alterar o ID de fora da classe
+        private LocacaoContext contextDB = new LocacaoContext();//contextDB recebe LocacaoContext para que 
+        //o conteudo de LocacaoContext (como ListaDeUsuaris) seja acessivel em 'contextDB.Lista...'
         public UsuarioController()
         {
-            ListaDeUsuarios = new List<Usuario>();// CONSTRUTOR
-            ListaDeUsuarios.Add(new Usuario() //lista (um ou mais objetos)
-            {
-                Login = "Admin",
-                Senha = "Admin",
-                Ativo = true,
-                Id = IdContador++//contador++ incrementa apos a acao . ID comecou no 1, salvaria 1, e mudaria a espera para 2.
-                //"++contador" incrementa antes. ID comecou no 1, salvaria 2
-            });
-            ListaDeUsuarios.Add(new Usuario()
-            {
-                Login = "HBSIS",
-                Senha = "PROWAY",
-                Ativo = true,
-                Id = IdContador++
-            });
-            ListaDeUsuarios.Add(new Usuario()
-            {
-                Login = "200902",
-                Senha = "123456",
-                Ativo = true,
-                Id = IdContador++
-            });
+            
+            
         }
         
         /// <summary>
@@ -51,17 +31,17 @@ namespace LocacaoBiblioteca.Controller
         public bool LoginSistema(Usuario usuarios)//Usuarios= id,login,senha etc
         {
             //como a lista ja foi inicializada e salva na memoria na propria classe, o teste na LISTA de USUARIOS fica mais simples
-            return ListaDeUsuarios.Exists(u => u.Login == usuarios.Login && u.Senha == usuarios.Senha);
+            return contextDB.ListaDeUsuarios.Exists(u => u.Login == usuarios.Login && u.Senha == usuarios.Senha);
             /*if (usuarios.Login == "Admin" && usuarios.Senha == "Admin")
                 return true;
             else
                 return false;*/// antigo teste
         }
-        private List<Usuario> ListaDeUsuarios { get; set; }//lista PRIVADA de usuarios na classe, sera chamada em um metodo publico para mostrar no programa sem alterar
+        
         public void AdicionaUsuario(Usuario usuario)//cadastro de usuario na lista criada acima "ListaDeUsuarios"
         {
-            usuario.Id = IdContador++;
-            ListaDeUsuarios.Add(usuario);
+            usuario.Id = contextDB.IdContador++;
+            contextDB.ListaDeUsuarios.Add(usuario);
         }
         /// <summary>
         /// Metodo publico pra mostrar ListaDeUsuarios ATIVOS(que esta privada na CLASSE para evitar acesso externo)
@@ -69,7 +49,7 @@ namespace LocacaoBiblioteca.Controller
         /// <returns></returns>
         public List<Usuario> RetornaListaDeUsuarios()
         {
-            return ListaDeUsuarios.Where(x => x.Ativo).ToList<Usuario>();
+            return contextDB.ListaDeUsuarios.Where(x => x.Ativo).ToList<Usuario>();
         }
         /// <summary>
         /// Metodo que desativa um regstro de usuario cadastrado em nossa lista
@@ -79,7 +59,7 @@ namespace LocacaoBiblioteca.Controller
         {
             //aqui usamos FirstOrDefault para localiza nosso usuario dentro da lista
             //com isso conseguimos acessar as propriedades dele e desativar o registro
-            ListaDeUsuarios.FirstOrDefault(x => x.Id == intentificadoID).Ativo = false;
+            contextDB.ListaDeUsuarios.FirstOrDefault(x => x.Id == intentificadoID).Ativo = false;
         }
     }
 }

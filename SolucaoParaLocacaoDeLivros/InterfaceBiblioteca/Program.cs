@@ -166,6 +166,11 @@ namespace InterfaceBiblioteca
             Console.WriteLine("Livro cadastrado com sucesso.");
             Console.ReadKey();
         }
+
+        /// <summary>
+        /// Metodo que desativa registro (troca Ativo TRUE por FALSE
+        /// ocultando da lista pois a mesma retorna apenas ativo igual a true
+        /// </summary>
         private static void RemoverUsuario()
         {
             Console.WriteLine("Desativação de Usuários");

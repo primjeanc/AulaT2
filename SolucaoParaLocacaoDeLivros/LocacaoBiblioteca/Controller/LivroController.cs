@@ -9,43 +9,39 @@ namespace LocacaoBiblioteca.Controller
 {
     public class LivroController
     {
-        private int IdLivroContador = 1;
+        private LocacaoContext contextDB = new LocacaoContext();//inicia a classe do LocacaoContext
         public LivroController()
         {
-            ListaDeLivros = new List<Livro>();
-            ListaDeLivros.Add(new Livro() //lista (um ou mais objetos)
-            {
-                Nome = "A ordem das batatas não altera a maionese",
-                Id = IdLivroContador++,
-                Ativo = true
-            });
-            ListaDeLivros.Add(new Livro()
-            {
-                Nome = "Certo, errado ou XGH",
-                Id = IdLivroContador++
-            });
+            
 
         }           
-
-        private List<Livro> ListaDeLivros { get; set; }//class tipo LISTA para guardar os Livros "private" para evitar uso separado dentro do programa
-        /// <summary>
-        /// Metodo que adiciona livros em nossa lista ja instanciada criada dentro do construtor
-        /// </summary>
-        /// <param name="livro"></param>
+                
+       
         public void AdicionarLivro(Livro livro)
         {
-            livro.Id = IdLivroContador++;
-            ListaDeLivros.Add(livro);
+            livro.Id = contextDB.IdLivroContador++;
+            contextDB.ListaDeLivros.Add(livro);
         }
         public List<Livro> RetornaListaDeLivros()
         {
-            return ListaDeLivros;
+            return contextDB.ListaDeLivros.Where(x => x.Ativo).ToList<Livro>(); 
+            //where(..ativo) onde o where procura retorno BOOLEAN do Ativo, que seriam os TRUE apenas
+            //quando passa pela lambda '=>' deixa de ser lista, o ToList faz voltar a ser lista
         }
+
+        /// <summary>
+        /// Metodo para desativar registro do livro selecionado pelo ID
+        /// </summary>
+        /// <param name="intentificadoID"></param>
         public void RemoverLivroPorID(int intentificadoID)
         {
             //aqui usamos FirstOrDefault para localiza nosso usuario dentro da lista
             //com isso conseguimos acessar as propriedades dele e desativar o registro
-            ListaDeLivros.FirstOrDefault(x => x.Id == intentificadoID).Ativo = false;
+            var livro = contextDB.ListaDeLivros.FirstOrDefault(x => x.Id == intentificadoID);
+            if (livro != null)
+                livro.Ativo = false;
+            //usando if(...) ao inves de usar direto '.Ativo = false' para evitar erro ao tentar remover ID que nao existe ou n foi encontrado
+            //poderia usar IF no usuarioController tambem
         }
 
 
