@@ -49,6 +49,7 @@ namespace InterfaceBiblioteca
                 Console.WriteLine("4 - Cadastrar Livros");
                 Console.WriteLine("5 - Troca de Usuário");
                 Console.WriteLine("6 - Remover Usuário");
+                Console.WriteLine("7 - Remover Livro");
                 Console.WriteLine("0 - Sair");
                 opcao = int.Parse(Console.ReadKey(true).KeyChar.ToString());
                 switch (opcao)
@@ -71,6 +72,9 @@ namespace InterfaceBiblioteca
                         break;
                     case 6:
                         RemoverUsuario();
+                        break;
+                    case 7:
+                        RemoverLivro();
                         break;
 
                     case 0:
@@ -174,8 +178,19 @@ namespace InterfaceBiblioteca
             Console.WriteLine("Usuário desativado!");//retorna mensagem apos remover/desativar usuario
             Console.ReadKey();
 
-
         }
-        
+        private static void RemoverLivro()
+        {
+            Console.WriteLine("Remoção de exemplar/livro do catálogo");
+            ListagemLivros();//chama o metodo que ja mostrava lista de livros
+            Console.WriteLine("Informe o ID do livro a ser desativado:");
+            var livroID = int.Parse(Console.ReadLine());
+            
+            livroController.RemoverLivroPorID(livroID);
+
+            Console.WriteLine("Exemplar removido!");//retorna mensagem apos remover/desativar usuario
+            Console.ReadKey();
+        }
+
     }
 }

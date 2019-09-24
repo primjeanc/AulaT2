@@ -16,7 +16,8 @@ namespace LocacaoBiblioteca.Controller
             ListaDeLivros.Add(new Livro() //lista (um ou mais objetos)
             {
                 Nome = "A ordem das batatas não altera a maionese",
-                Id = IdLivroContador++
+                Id = IdLivroContador++,
+                Ativo = true
             });
             ListaDeLivros.Add(new Livro()
             {
@@ -39,6 +40,12 @@ namespace LocacaoBiblioteca.Controller
         public List<Livro> RetornaListaDeLivros()
         {
             return ListaDeLivros;
+        }
+        public void RemoverLivroPorID(int intentificadoID)
+        {
+            //aqui usamos FirstOrDefault para localiza nosso usuario dentro da lista
+            //com isso conseguimos acessar as propriedades dele e desativar o registro
+            ListaDeLivros.FirstOrDefault(x => x.Id == intentificadoID).Ativo = false;
         }
 
 
