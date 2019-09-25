@@ -23,7 +23,7 @@ namespace Apresentacao
         {
             Console.WriteLine("-------------- Lista completa de veículos cadastrados ----------------");
             veiculoController.RetornaListaVeiculos()
-                .ForEach(i => Console.WriteLine($"ID: {i.Id} | Carro: {i.Carro} | Valor: {i.Valor} | Quantidade: {i.Quantidade} | Data: {i.Data}"));
+                .ForEach(i => Console.WriteLine($"ID: {i.Id} | Carro: {i.Carro} | Valor: {i.Valor} | Quantidade: {i.Quantidade} | Data: {i.Data.ToShortDateString()}"));
         }
         private static void MostraMenuSistema()
         {
@@ -37,7 +37,8 @@ namespace Apresentacao
                 //Mostras as opcoes do menu em sistema
                 Console.WriteLine("Menu Sistema:");
                 Console.WriteLine("1 - Lista Geral de Veículos");
-                Console.WriteLine("2 - Relatório");      
+                Console.WriteLine("2 - Relatório Mensal");
+                Console.WriteLine("3 - Relatório Geral");
                 Console.WriteLine("0 - Sair");
                 opcao = int.Parse(Console.ReadKey(true).KeyChar.ToString());
                 switch (opcao)
@@ -47,9 +48,11 @@ namespace Apresentacao
                         ListagemVeiculo(); Console.ReadKey();
                         break;
                     case 2:
+                        RelatorioDeVendasMensal(); Console.ReadKey();
+                        break;
+                    case 3:
                         SomaTotalDeVendas(); MediaDeVendas(); Console.ReadKey();
-                        break;                 
-                    
+                        break;
 
                     case 0:
                         return;
@@ -61,16 +64,31 @@ namespace Apresentacao
 
         }
         private static void SomaTotalDeVendas()
-        {
-            Console.WriteLine($"Total de vendas do mês:");
-            veiculoController.contextDB.ListaVeiculo.Sum(x => (x.Quantidade * x.Valor));
+        {            
+            Console.WriteLine($"Total de vendas para 2019:");
+            Console.WriteLine(veiculoController.contextDB.ListaVeiculo.Sum(x => (x.Quantidade * x.Valor)));
             //Console.WriteLine(venda.Sum(x=> (x.Quantidade*x.Valor)));
         }
         private static void MediaDeVendas()
         {
-            Console.WriteLine($"Média de vendas do mês:");
+            Console.WriteLine($"Média de vendas para 2019:");
+            Console.WriteLine(veiculoController.contextDB.ListaVeiculo.Average(x => (x.Quantidade * x.Valor)));
             //Console.WriteLine(venda.Average(x=> (x.Quantidade*x.Valor)));
         }
+        public static void RelatorioDeVendasMensal()
+        {
+            Console.WriteLine("Informe o mês");
+            var mes = int.Parse(Console.ReadLine());            
+            var listaTotal = veiculoController.contextDB.ListaVeiculo.Where(m => m.Data.Month == mes);
+
+            Console.WriteLine($"Total de vendas para {mes}/2019:");
+            Console.WriteLine(listaTotal.Sum(x => (x.Quantidade * x.Valor)));
+
+            Console.WriteLine($"Média de vendas para {mes}/2019:");
+            Console.WriteLine(listaTotal.Average(x => (x.Quantidade * x.Valor)));
+            //Console.WriteLine(venda.Sum(x=> (x.Quantidade*x.Valor)));
+        }
+
 
     }
 }
