@@ -1,4 +1,5 @@
 ﻿using Apresentacao.Controller;
+using Apresentacao.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,27 +67,37 @@ namespace Apresentacao
         private static void SomaTotalDeVendas()
         {            
             Console.WriteLine($"Total de vendas para 2019:");
-            Console.WriteLine(veiculoController.contextDB.ListaVeiculo.Sum(x => (x.Quantidade * x.Valor)));
+            Console.WriteLine(veiculoController.contextDB.ListaVeiculo.Sum(x => (x.Quantidade * x.Valor)).ToString("C2"));
             //Console.WriteLine(venda.Sum(x=> (x.Quantidade*x.Valor)));
         }
         private static void MediaDeVendas()
         {
             Console.WriteLine($"Média de vendas para 2019:");
-            Console.WriteLine(veiculoController.contextDB.ListaVeiculo.Average(x => (x.Quantidade * x.Valor)));
+            Console.WriteLine(veiculoController.contextDB.ListaVeiculo.Average(x => (x.Quantidade * x.Valor)).ToString("C2"));
             //Console.WriteLine(venda.Average(x=> (x.Quantidade*x.Valor)));
         }
         public static void RelatorioDeVendasMensal()
         {
             Console.WriteLine("Informe o mês");
             var mes = int.Parse(Console.ReadLine());            
-            var listaTotal = veiculoController.contextDB.ListaVeiculo.Where(m => m.Data.Month == mes);
-
+            var listaTotal = veiculoController.RetornaListaVeiculosMes(mes);
+            listaTotal.ForEach(w => Console.WriteLine());
+            ImprimeDados(listaTotal);
             Console.WriteLine($"Total de vendas para {mes}/2019:");
-            Console.WriteLine(listaTotal.Sum(x => (x.Quantidade * x.Valor)));
+            Console.WriteLine(listaTotal.Sum(x => (x.Quantidade * x.Valor)).ToString("C2"));
 
             Console.WriteLine($"Média de vendas para {mes}/2019:");
-            Console.WriteLine(listaTotal.Average(x => (x.Quantidade * x.Valor)));
+            Console.WriteLine(listaTotal.Average(x => (x.Valor)).ToString("C2"));
             //Console.WriteLine(venda.Sum(x=> (x.Quantidade*x.Valor)));
+        }
+        public static void ListarVeiculos()
+        {
+            ImprimeDados(veiculoController.RetornaListaVeiculos());
+        }
+        public static void ImprimeDados(List<Veiculo> listaTotal)
+        {
+            string template = "ID: {0,-3} | Carro: {1,-40} | Valor: {2,10} | Qtde: {3,4} | Data: {4,10}";
+            listaTotal.ForEach(v => Console.WriteLine(String.Format(template, v.Id, v.Carro, v.Valor.ToString("C2"), v.Quantidade, v.Data.ToShortDateString())));
         }
 
 

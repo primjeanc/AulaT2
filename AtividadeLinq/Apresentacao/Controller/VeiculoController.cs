@@ -15,7 +15,11 @@ namespace Apresentacao.Controller
         {
             return contextDB.ListaVeiculo;
         }
-        
+        public List<Veiculo> RetornaListaVeiculosMes(int mes)
+        {
+            return contextDB.ListaVeiculo.Where(x=> x.Data.Month == mes).ToList();
+        }
+
     }
     
 }
