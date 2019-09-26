@@ -10,34 +10,34 @@ namespace Apresentacao.Model
     {
         public Context()
         {
-            ListaVeiculo = new List<Veiculo>();
+            ListaVeiculo = new List<Veiculo>();// inicia a lista e Aloca em memoria
             #region VeiculosCadastrados
-            ListaVeiculo.Add(new Veiculo() { Id = 1, Carro = "Risus Company                      ", Valor = 7200, Quantidade = 18, Data = DateTime.Parse("29/01/2019") });
-            ListaVeiculo.Add(new Veiculo() { Id = 2, Carro = "Risus Associates", Valor = 9961, Quantidade = 4,   Data = DateTime.Parse("10/02/2019") });
-            ListaVeiculo.Add(new Veiculo() { Id = 3, Carro = "Et Libero Proin Foundation	    ", Valor = 8710, Quantidade = 17, Data = DateTime.Parse("24/01/2019") });
-            ListaVeiculo.Add(new Veiculo(){ Id = 4, Carro = "Cursus Et Ltd", Valor = 9010, Quantidade =	17,	Data = DateTime.Parse("26/10/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 5, Carro = "Odio Etiam Ligula Company", Valor = 5245, Quantidade =	8,	Data = DateTime.Parse("16/02/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 6, Carro = "Eu Nibh Inc.", Valor = 7922, Quantidade =	9,	Data = DateTime.Parse("27/06/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 7, Carro = "Tellus Limited"                   ,Valor = 7294, Quantidade =	7,	Data = DateTime.Parse("26/01/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 8, Carro = "Imperdiet PC"                     ,Valor = 8305, Quantidade =	5,	Data = DateTime.Parse("06/09/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 9, Carro = "Elit Inc."                        ,Valor = 5398, Quantidade =	18,	Data = DateTime.Parse("09/06/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 10,Carro = "Quam A Limited"                   ,Valor = 5398, Quantidade =	14,	Data = DateTime.Parse("09/09/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 11,Carro = "Adipiscing Institute"            ,Valor = 8133, Quantidade =	4,  Data = DateTime.Parse("24/10/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 12,Carro = "Posuere At Velit Ltd"             ,Valor = 5121, Quantidade =	15,	Data = DateTime.Parse("19/11/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 13,Carro = "Nunc In Industries"               ,Valor = 8902, Quantidade =	2,	Data = DateTime.Parse("21/07/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 14,Carro = "Integer Vitae Nibh Corporation", Valor = 6313, Quantidade =	20,	Data = DateTime.Parse("02/02/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 15,Carro = "Tellus Nunc Lectus Company", Valor = 9650, Quantidade =	2,	Data = DateTime.Parse("20/07/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 16,Carro = "Suspendisse LLC", Valor = 5319, Quantidade =	12,	Data = DateTime.Parse("24/12/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 17,Carro = "Mauris Vestibulum Corporation", Valor = 5790, Quantidade =	5,	Data = DateTime.Parse("14/11/2019")});
-            ListaVeiculo.Add(new Veiculo() { Id = 18, Carro = "Sed Nec Corp.", Valor = 8421, Quantidade = 2, Data = DateTime.Parse("05/05/2019") });
-            ListaVeiculo.Add(new Veiculo() { Id = 19, Carro = "Enim Nisl Elementum Inc.", Valor = 5904, Quantidade = 6, Data = DateTime.Parse("26/06/2019") });
-            ListaVeiculo.Add(new Veiculo() { Id = 20, Carro = "Ac Mattis Semper Corporation", Valor = 5110, Quantidade = 4, Data = DateTime.Parse("14 /01/2019") });                    
-            ListaVeiculo.Add(new Veiculo(){ Id = 21,Carro = "Donec Tempus Lorem LLC"	        ,Valor = 8576, Quantidade = 	16, Data = DateTime.Parse("29/03/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 22,Carro = "Tempor Augue Ac Ltd	           " ,Valor = 9072, Quantidade = 	16, Data = DateTime.Parse("09/07/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 23,Carro = "Diam Duis Mi LLC	               ",Valor = 8472, Quantidade = 	 4, Data = DateTime.Parse("23/09/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 1, Carro = "Risus Company                       ",Valor = 7200, Quantidade = 18, Data = DateTime.Parse("29/01/2019") });
+            ListaVeiculo.Add(new Veiculo(){ Id = 2, Carro = "Risus Associates                    ",Valor = 9961, Quantidade = 4,   Data = DateTime.Parse("10/02/2019") });
+            ListaVeiculo.Add(new Veiculo(){ Id = 3, Carro = "Et Libero Proin Foundation	         ",Valor = 8710, Quantidade = 17, Data = DateTime.Parse("24/01/2019") });
+            ListaVeiculo.Add(new Veiculo(){ Id = 4, Carro = "Cursus Et Ltd                       ",Valor = 9010, Quantidade =	17,	Data = DateTime.Parse("26/10/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 5, Carro = "Odio Etiam Ligula Company           ",Valor = 5245, Quantidade =	8,	Data = DateTime.Parse("16/02/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 6, Carro = "Eu Nibh Inc.                        ",Valor = 7922, Quantidade =	9,	Data = DateTime.Parse("27/06/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 7, Carro = "Tellus Limited                      ",Valor = 7294, Quantidade =	7,	Data = DateTime.Parse("26/01/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 8, Carro = "Imperdiet PC                        ",Valor = 8305, Quantidade =	5,	Data = DateTime.Parse("06/09/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 9, Carro = "Elit Inc.                           ",Valor = 5398, Quantidade =	18,	Data = DateTime.Parse("09/06/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 10,Carro = "Quam A Limited                      ",Valor = 5398, Quantidade =	14,	Data = DateTime.Parse("09/09/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 11,Carro = "Adipiscing Institute                ",Valor = 8133, Quantidade =	4,  Data = DateTime.Parse("24/10/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 12,Carro = "Posuere At Velit Ltd                ",Valor = 5121, Quantidade =	15,	Data = DateTime.Parse("19/11/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 13,Carro = "Nunc In Industries                  ",Valor = 8902, Quantidade =	2,	Data = DateTime.Parse("21/07/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 14,Carro = "Integer Vitae Nibh Corporation      ",Valor = 6313, Quantidade =	20,	Data = DateTime.Parse("02/02/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 15,Carro = "Tellus Nunc Lectus Company          ",Valor = 9650, Quantidade =	2,	Data = DateTime.Parse("20/07/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 16,Carro = "Suspendisse LLC                     ",Valor = 5319, Quantidade =	12,	Data = DateTime.Parse("24/12/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 17,Carro = "Mauris Vestibulum Corporation       ",Valor = 5790, Quantidade =	5,	Data = DateTime.Parse("14/11/2019")});
+            ListaVeiculo.Add(new Veiculo() { Id = 18, Carro = "Sed Nec Corp.                     ",Valor = 8421, Quantidade = 2, Data = DateTime.Parse("05/05/2019") });
+            ListaVeiculo.Add(new Veiculo() { Id = 19, Carro = "Enim Nisl Elementum Inc.          ",Valor = 5904, Quantidade = 6, Data = DateTime.Parse("26/06/2019") });
+            ListaVeiculo.Add(new Veiculo() { Id = 20, Carro = "Ac Mattis Semper Corporation      ",Valor = 5110, Quantidade = 4, Data = DateTime.Parse("14 /01/2019") });                    
+            ListaVeiculo.Add(new Veiculo(){ Id = 21,Carro = "Donec Tempus Lorem LLC              ",Valor = 8576, Quantidade = 	16, Data = DateTime.Parse("29/03/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 22,Carro = "Tempor Augue Ac Ltd	             ",Valor = 9072, Quantidade = 	16, Data = DateTime.Parse("09/07/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 23,Carro = "Diam Duis Mi LLC	                 ",Valor = 8472, Quantidade = 	 4, Data = DateTime.Parse("23/09/2019")});
             ListaVeiculo.Add(new Veiculo(){ Id = 24,Carro = "Aliquam Corp.	                     ",Valor = 6607, Quantidade = 	 4, Data = DateTime.Parse("28/09/2019")});
             ListaVeiculo.Add(new Veiculo(){ Id = 25,Carro = "Montes Institute	                 ",Valor = 6176, Quantidade = 	 8, Data = DateTime.Parse("19/06/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 26,Carro = "Hendrerit Institute	            ",Valor = 8387, Quantidade = 	11, Data = DateTime.Parse("17/09/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 26,Carro = "Hendrerit Institute	             ",Valor = 8387, Quantidade = 	11, Data = DateTime.Parse("17/09/2019")});
             ListaVeiculo.Add(new Veiculo(){ Id = 27,Carro = "Erat Etiam Vestibulum Corporation   ",Valor = 7584, Quantidade = 	 9, Data = DateTime.Parse("02/06/2019")});
             ListaVeiculo.Add(new Veiculo(){ Id = 28,Carro = "Adipiscing Ltd                      ",Valor = 7887, Quantidade = 	9,	Data = DateTime.Parse("19/03/2019")});
             ListaVeiculo.Add(new Veiculo(){ Id = 29,Carro = "In Tempus Eu Inc.                   ",Valor = 5233, Quantidade = 	16, Data = DateTime.Parse("20/07/2019")});
@@ -100,7 +100,7 @@ namespace Apresentacao.Model
             ListaVeiculo.Add(new Veiculo(){ Id = 86,Carro = "Pellentesque Ultricies Dignissim P,C",Valor  =7971, Quantidade = 	15, Data = DateTime.Parse("25/10/2019")});
             ListaVeiculo.Add(new Veiculo(){ Id = 87,Carro = "Phasellus Elit Company	             ",Valor = 5350, Quantidade = 	15, Data = DateTime.Parse("31/10/2019")});
             ListaVeiculo.Add(new Veiculo(){ Id = 88,Carro = "Luctus Felis Ltd	                 ",Valor = 9872, Quantidade = 	13, Data = DateTime.Parse("06/01/2019")});
-            ListaVeiculo.Add(new Veiculo(){ Id = 89,Carro = "Dui Suspendisse PC	                 ",Valor = 6878, Quantidade = 	 7, Data = DateTime.Parse("06/02/2019")});
+            ListaVeiculo.Add(new Veiculo(){ Id = 89,Carro = "Dui Suspendisse PC                  ",Valor = 6878, Quantidade = 	 7, Data = DateTime.Parse("06/02/2019")});
             ListaVeiculo.Add(new Veiculo(){ Id = 90,Carro = "Odio Associates	                 ",Valor = 7636, Quantidade = 	18, Data = DateTime.Parse("24/07/2019")});
             ListaVeiculo.Add(new Veiculo(){ Id = 91,Carro = "Vel Company	                     ",Valor = 7410, Quantidade = 	 5, Data = DateTime.Parse("16/02/2019")});
             ListaVeiculo.Add(new Veiculo(){ Id = 92,Carro = "Lobortis Institute	                 ",Valor = 5110, Quantidade = 	 8, Data = DateTime.Parse("27/05/2019")});
@@ -115,7 +115,7 @@ namespace Apresentacao.Model
             #endregion
             
         }
-        public List<Veiculo> ListaVeiculo { get; set; }
+        public List<Veiculo> ListaVeiculo { get; set; }// era private??
 
 
     }

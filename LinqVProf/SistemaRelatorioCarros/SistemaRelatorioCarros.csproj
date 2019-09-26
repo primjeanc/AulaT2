@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1D1E310E-DBDA-4267-BE4B-066B1F005A59}</ProjectGuid>
+    <ProjectGuid>{7A4E57D6-A430-4278-BBF7-02C9B333179F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary</RootNamespace>
-    <AssemblyName>ClassLibrary</AssemblyName>
+    <RootNamespace>SistemaRelatorioCarros</RootNamespace>
+    <AssemblyName>SistemaRelatorioCarros</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\VeiculoController.cs" />
-    <Compile Include="Model\Context.cs" />
-    <Compile Include="Model\Veiculo.cs" />
+    <Compile Include="Controller\VendasController.cs" />
+    <Compile Include="Model\SistemaVendasContext.cs" />
+    <Compile Include="Model\Venda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

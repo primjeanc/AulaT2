@@ -23,8 +23,10 @@ namespace Apresentacao
         private static void ListagemVeiculo()
         {
             Console.WriteLine("-------------- Lista completa de veículos cadastrados ----------------");
-            veiculoController.RetornaListaVeiculos()
-                .ForEach(i => Console.WriteLine($"ID: {i.Id} | Carro: {i.Carro} | Valor: {i.Valor} | Quantidade: {i.Quantidade} | Data: {i.Data.ToShortDateString()}"));
+            //veiculoController.RetornaListaVeiculos()
+            //    .ForEach(i => Console.WriteLine($"ID: {i.Id} | Carro: {i.Carro} | Valor: {i.Valor} | Quantidade: {i.Quantidade} | Data: {i.Data.ToShortDateString()}"));
+            string template = "ID: {0,-3} | Carro: {1,-25} | Valor: {2,10} | Qtde: {3,4} | Data: {4,10}";
+            veiculoController.RetornaListaVeiculos().ForEach(v => Console.WriteLine(String.Format(template, v.Id, v.Carro, v.Valor.ToString("C2"), v.Quantidade, v.Data.ToShortDateString())));
         }
         private static void MostraMenuSistema()
         {
@@ -34,7 +36,7 @@ namespace Apresentacao
             while (opcao != 0)//Menu em LOOP até que aperte 0 "zero"
             {
                 Console.Clear();
-                Console.WriteLine("SISTEMA DE LOCAÇÃO DE LIVROS 1.0");
+                Console.WriteLine("REGISTRO DE VENDAS 2019");
                 //Mostras as opcoes do menu em sistema
                 Console.WriteLine("Menu Sistema:");
                 Console.WriteLine("1 - Lista Geral de Veículos");
@@ -96,7 +98,7 @@ namespace Apresentacao
         }
         public static void ImprimeDados(List<Veiculo> listaTotal)
         {
-            string template = "ID: {0,-3} | Carro: {1,-40} | Valor: {2,10} | Qtde: {3,4} | Data: {4,10}";
+            string template = "ID: {0,-3} | Carro: {1,-25} | Valor: {2,10} | Qtde: {3,4} | Data: {4,10}";
             listaTotal.ForEach(v => Console.WriteLine(String.Format(template, v.Id, v.Carro, v.Valor.ToString("C2"), v.Quantidade, v.Data.ToShortDateString())));
         }
 
