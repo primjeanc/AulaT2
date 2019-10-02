@@ -84,3 +84,12 @@ group by cli.Id, cli.Nome --agrupa nomes e/ids iguais para conseguir usar o SUM 
 order by cli.Nome--ordem por nome
 
 
+/*pesquisando alguns pedidos dentre todos eles*/
+select pe.Numero, pe.Valor, cli.Nome from Clientes cli inner join Pedidos pe on cli.Id = pe.ClienteId
+where pe.Numero in ('N00000002','N00000003','N000000014')
+
+/*retorna todos os pedidos que os clientes dos 3 pedidos citados fizeram ate o momento*/
+select * from Pedidos pe 
+where pe.ClienteId in (select cli.Id from Clientes cli inner join Pedidos pe on cli.Id = pe.ClienteId 
+where pe.Numero in ('N00000002','N00000003','N000000014'))
+order by pe.Valor desc
