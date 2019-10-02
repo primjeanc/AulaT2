@@ -8,7 +8,7 @@ create table Tipos--[0]carro [1]moto
 (
 Id int primary key identity(1,1) not null,
 Codigo bit default ((1)),
-Tipo nchar(5)not null,
+Tipo nvarchar(5)not null,--nvarchar teoricamente ordena melhor na tabela posteriormente
 Ativo bit default ((1))
 
 )
