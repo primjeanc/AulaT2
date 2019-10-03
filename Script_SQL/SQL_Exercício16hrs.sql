@@ -102,7 +102,11 @@ set DataSaida = '10/03/2019', Ativo = 0, DataAlteracao = getdate()
 where Nome like 'Mun%' -- pega valores que contenham 'Mun'+ qlqr coisa,  %Mun pegaria qlqr coisa + Mun no final
 -- %Wa% pegaria de ambos os lados como SkyWalker
 
-select * from Funcionarios
+select Nome, convert(varchar(10),DataInicio,103) as 'Início',
+convert (varchar(10),DataSaida,103) as 'Saída' from Funcionarios
+
+/*deveria dar o intervalo de tempo*/
+--select Nome, (DataSaida-DataInicio) as 'tempo' from Funcionarios
 
 
 
