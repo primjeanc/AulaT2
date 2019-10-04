@@ -101,11 +101,6 @@ order by sum(Valor) desc
 --Trazer o mês de cada ano que retornou a maior quantidade de vendas  --*****************************************CORRIGIR
 --		- Tradução "Retornar agrupado por mês e ordenar do maior para menor"
 --TOP 3 xing ling
-select top 3 count(Valor) as 'Total de Vendas', month(DatInc) as 'mês' , year(DatInc) as 'Ano' from Vendas 
-where year (DatInc) like '%2018%'  or year (DatInc) like '%2019%' or year (DatInc) like '%2020%'
-group by month( DatInc), year(DatInc)
-order by (count(Valor)) desc 
-
 
 SELECT year(ven1.DatInc),
 (	SELECT TOP 1 MONTH(ven.DatInc) FROM Vendas ven
@@ -114,13 +109,6 @@ SELECT year(ven1.DatInc),
   ORDER BY sum(ven.Quantidade) DESC)
 FROM Vendas ven1
 GROUP BY year(ven1.DatInc)
-
-select top 1
-(select top 1 Month(DatInc)	from Vendas	where YEAR(DatInc) = '2018'	group by MONTH(DatInc) order by sum(Valor) desc) as '2018',
-(select top 1 Month(DatInc)	from Vendas	where YEAR(DatInc) = '2019'	group by MONTH(DatInc) order by sum(Valor) desc) as '2019',
-(select top 1 Month(DatInc)	from Vendas	where YEAR(DatInc) = '2020'	group by MONTH(DatInc) order by sum(Valor) desc) as '2020'
-from Vendas
-
 		
 --Trazer o mês de cada ano que retornou o maior valor de vendas
 --		- Tradução "Retornar agrupado por mês e ordenar do maior para menor"
