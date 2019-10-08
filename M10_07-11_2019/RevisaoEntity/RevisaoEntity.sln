@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevisandoEntity", "RevisandoEntity\RevisandoEntity.csproj", "{C05CD41D-EB44-4CCB-8C5B-D66B287A13CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{FC39BE0D-07F8-4C64-9B57-1FB8082EF44C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C05CD41D-EB44-4CCB-8C5B-D66B287A13CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C05CD41D-EB44-4CCB-8C5B-D66B287A13CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C05CD41D-EB44-4CCB-8C5B-D66B287A13CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C05CD41D-EB44-4CCB-8C5B-D66B287A13CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC39BE0D-07F8-4C64-9B57-1FB8082EF44C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC39BE0D-07F8-4C64-9B57-1FB8082EF44C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC39BE0D-07F8-4C64-9B57-1FB8082EF44C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC39BE0D-07F8-4C64-9B57-1FB8082EF44C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F64657C-C5C2-482D-960A-F8EE3AD96991}
+	EndGlobalSection
+EndGlobal
