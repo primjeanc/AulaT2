@@ -13,8 +13,8 @@ namespace LocacaoBiblioteca.Controller
     public class UsuarioController
     {
         private LocacaoContext contextDB = new LocacaoContext();//contextDB recebe LocacaoContext para que 
-        //o conteudo de LocacaoContext (como ListaDeUsuaris) seja acessivel em 'contextDB.Lista...'
-               
+                                                                //o conteudo de LocacaoContext (como ListaDeUsuaris) seja acessivel em 'contextDB.Lista...'
+
         /// <summary>
         /// Metodo que realiza o login dentro do nosso sistema
         /// Para realizar login padrao use:
@@ -27,26 +27,38 @@ namespace LocacaoBiblioteca.Controller
         {
             //como a lista ja foi inicializada e salva na memoria na propria classe, o teste na LISTA de USUARIOS fica mais simples
 
-            return contextDB.Usuarios.Exists(u => u.Login == usuarios.Login && u.Senha == usuarios.Senha);
-           
+            return contextDB.Usuarios.ToList().Exists(u => u.Login == usuarios.Login && u.Senha == usuarios.Senha);
+
             /*if (usuarios.Login == "Admin" && usuarios.Senha == "Admin")
                 return true;
             else
                 return false;*/// antigo teste
         }
-        
-        public void AdicionaUsuario(Usuario usuario)//cadastro de usuario na lista criada acima "ListaDeUsuarios"
-        {
-            //usuario.Id = contextDB.IdContador++;
-            contextDB.Usuarios.Add(usuario);
-        }
+     
         /// <summary>
-        /// Metodo publico pra mostrar ListaDeUsuarios ATIVOS(que esta privada na CLASSE para evitar acesso externo)
+        /// Metodo que retorna relação de usuarios
         /// </summary>
         /// <returns></returns>
-        public List<Usuario> RetornaListaDeUsuarios()
+        public IQueryable<Usuario> GetUsuarios()
         {
-            return contextDB.Usuarios.Where(x => x.Ativo).ToList<Usuario>();
+            return contextDB.Usuarios.Where(x => x.Ativo == true);// nao precisaria do '== true', como padrao ja seria TRUE
+        }
+        /// <summary>
+        /// Metodo para adicionar usuarios
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public bool AddUsuario(Usuario item)
+        {
+            if (string.IsNullOrWhiteSpace(item.Login))// metodo que identifica espacos em branco
+                return false;
+            if (string.IsNullOrWhiteSpace(item.Senha))// metodo que identifica espacos em branco
+                return false;
+
+            contextDB.Usuarios.Add(item);
+            contextDB.SaveChanges();
+
+            return true;
         }
         /// <summary>
         /// Metodo que desativa um regstro de usuario cadastrado em nossa lista
@@ -58,5 +70,20 @@ namespace LocacaoBiblioteca.Controller
             //com isso conseguimos acessar as propriedades dele e desativar o registro
             contextDB.Usuarios.FirstOrDefault(x => x.Id == intentificadoID).Ativo = false;
         }
+        public bool AtualizarUsuario(Usuario item)
+        {
+            var usu =//variavel para o celular
+            contextDB.Usuarios.FirstOrDefault(x => x.Id == item.Id);
+            //BD      tabela    busca na tabela o celular
+            //Compara os IDs e verifica se encontrou o celular
+            if (usu == null)
+                return false;
+            else
+                //celular = item;
+                usu.DataAlteracao = DateTime.Now;
+            contextDB.SaveChanges();// salva apos confirmar IDs iguais
+            return true;
+        }
+
     }
 }

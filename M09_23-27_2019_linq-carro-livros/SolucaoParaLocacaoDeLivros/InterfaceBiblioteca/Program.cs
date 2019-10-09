@@ -18,16 +18,16 @@ namespace InterfaceBiblioteca
         {
 
             Console.WriteLine("SISTEMA DE LOCAÇÃO DE LIVROS 1.0");
-            TrocaDeUsuario();
+            //TrocaDeUsuario();
             MostraMenuSistema();
             Console.ReadKey();
 
         }
-        private static void TrocaDeUsuario()// chama o teste de usuario, caso login/senha INVALIDOS, fica travado no login e acessa MENU
-        {
-            while (!RealizaLoginSistema())
-                Console.WriteLine("Login ou senha inválido.");
-        }
+        //private static void TrocaDeUsuario()// chama o teste de usuario, caso login/senha INVALIDOS, fica travado no login e acessa MENU
+        //{
+        //    while (!RealizaLoginSistema())
+        //        Console.WriteLine("Login ou senha inválido.");
+        //}
 
         /// <summary>
         /// Mostra no Console o Menu apos logar em sistema
@@ -48,6 +48,10 @@ namespace InterfaceBiblioteca
                 Console.WriteLine("2 - Cadastrar Livro");
                 Console.WriteLine("3 - Atualizar Livros");                
                 Console.WriteLine("4 - Remover Livro");
+                Console.WriteLine("5 - Listar Usuarios");
+                //Console.WriteLine("6 - Cadastrar Usuário");
+                //Console.WriteLine("7 - Atualizar Usuários");
+                Console.WriteLine("8 - Remover Usuário");
                 Console.WriteLine("0 - Sair");
                 opcao = int.Parse(Console.ReadKey(true).KeyChar.ToString());
                 switch (opcao)
@@ -60,18 +64,28 @@ namespace InterfaceBiblioteca
                         AdicionarLivro(); 
                         break;
                     case 3:
-                        //CadastraLivro();
+                        AtualizarLivro();
                         break;
                     case 4:
                         RemoverLivro();
                         break;
-
+                    case 5:
+                        ListagemUsuarios(); Console.ReadKey();
+                        break;
+                    case 6:
+                        AdicionarUsuario();
+                        break;
+                    case 7:
+                        AtualizarLivro();//
+                        break;
+                    case 8:
+                        RemoverUsuario();
+                        break;
                     case 0:
                         return;
                     default:
                         break;
-                }         
-            
+                }  
         }             
 
         }
@@ -81,7 +95,7 @@ namespace InterfaceBiblioteca
         /// <returns>Returna  TRUE-FALSE quando informado login e senha</returns>
         private static bool RealizaLoginSistema()
         {
-            
+
             Console.WriteLine("Informe seu login e senha para acessar o sistema:");
 
             Console.WriteLine("Login: ");
@@ -102,28 +116,32 @@ namespace InterfaceBiblioteca
                 Login = loginDoUsuario,
                 Senha = senhaDoUsuario
             });
-            
+
         }
+
         /// <summary>
         /// Lista todos os livros registrados
         /// </summary>
         private static void ListagemLivros()//"Retorna..Livros" =private List<Livro> ListaDeLivros {get;set;} mas usado em metodo PUBLIC para conseguir LER e nao ESCREVER
         {
-            livroController.GetLivros().ToList().ForEach(l => Console.WriteLine($"ID: {l.Id} -- Nome: {l.Nome}"));//imprime todos os livros cadastrados
+            //livroController.GetLivros().ToList().ForEach(l => Console.WriteLine($"ID: {l.Id} -- Nome: {l.Nome}"));//imprime todos os livros cadastrados
+            string template = "ID: {0,-3} | Nome: {1,-30} ";
+            livroController.GetLivros().ToList<Livro>().ForEach(v => 
+            Console.WriteLine(String.Format(template, v.Id, v.Nome)));
         }
-        //private static void ListagemUsuarios()
-        //{
-        //    //mostra a lista de usuarios ja cadastrados
-        //    Console.Clear();
-        //    usuarioController.RetornaListaDeUsuarios().ForEach(i => Console.WriteLine($"ID: {i.Id} -- Login: {i.Login}"));
-            
-        //}
+        private static void ListagemUsuarios()//"Retorna..Livros" =private List<Livro> ListaDeLivros {get;set;} mas usado em metodo PUBLIC para conseguir LER e nao ESCREVER
+        {
+            //livroController.GetLivros().ToList().ForEach(l => Console.WriteLine($"ID: {l.Id} -- Nome: {l.Nome}"));//imprime todos os livros cadastrados
+            string template = "ID: {0,-3} | Login: {1,-30} | Senha {2,-30}";
+            usuarioController.GetUsuarios().ToList<Usuario>().ForEach(v =>
+            Console.WriteLine(String.Format(template, v.Id, v.Login, v.Senha)));
+        }
         /// <summary>
         /// Metodo que cadastra usuarios pelo programa acessando e registrando na lista da classe
         /// </summary>
         //private static void CadastraUsuario()
         //{
-            
+
         //    Usuario usuario = new Usuario();// inicia objeto'usuario' (lista)
         //    Console.WriteLine("Login a ser cadastrado:");
         //    usuario.Login = Console.ReadLine();
@@ -142,7 +160,6 @@ namespace InterfaceBiblioteca
         /// <summary>
         /// Metodo que adiciona ("cadastra") novos livros 
         /// </summary>
-
         public static void AdicionarLivro()
         {
             Console.WriteLine("Cadastrar livro em sistema:");
@@ -155,26 +172,46 @@ namespace InterfaceBiblioteca
                 Console.WriteLine("Livro cadastrado com sucesso!");
             else
                 Console.WriteLine("Erro ao cadastrar...");
-
         }
-
         /// <summary>
-        /// Metodo que desativa registro (troca Ativo TRUE por FALSE
-        /// ocultando da lista pois a mesma retorna apenas ativo igual a true
+        /// Metodo para adicionar Usuarios
         /// </summary>
-        //private static void RemoverUsuario()
-        //{
-        //    Console.WriteLine("Desativação de Usuários");
-        //    ListagemUsuarios();//chama o metodo que ja mostrava lista de usuarios
-        //    Console.WriteLine("Informe o ID do usuário a ser desativado:");
-        //    var usuarioID = int.Parse(Console.ReadLine());
-        //    //metodo da classe recebe variavel INT "usuarioID" do programa para conferir remocao
-        //    usuarioController.RemoverUsuarioPorID(usuarioID);
+        public static void AdicionarUsuario()
+        {
+            Console.WriteLine("Cadastrar usuário em sistema:");
+            Console.WriteLine("Informe Login:");
+            var lg = Console.ReadLine();
+            Console.WriteLine("Informe Senha:");
+            var pw = Console.ReadLine();
 
-        //    Console.WriteLine("Usuário desativado!");//retorna mensagem apos remover/desativar usuario
-        //    Console.ReadKey();
+            var resultado = usuarioController.AddUsuario(new Usuario()
+            {
+                Login = lg,
+                Senha = pw
+            }) ;
+            if (resultado)
+                Console.WriteLine("Usuário cadastrado com sucesso!");
+            else
+                Console.WriteLine("Erro ao cadastrar...");
+        }
+        /// <summary>
+        /// Metodo que altera status Ativo do Usuario para false ( a lista so mostra TRUE)
+        /// </summary>
+        private static void RemoverUsuario()
+        {
+            Console.WriteLine("Remoção de usuários do registro");
+            ListagemUsuarios();//chama o metodo que ja mostrava lista de livros
+            Console.WriteLine("Informe o ID do usuário a ser desativado:");
+            var usuId = int.Parse(Console.ReadLine());
 
-        //}
+            usuarioController.RemoverUsuarioPorID(usuId);
+
+            Console.WriteLine("Removido!");//retorna mensagem apos remover/desativar usuario
+            Console.ReadKey();
+        }
+        /// <summary>
+        /// Metodo que altera Ativo=false do Livro pelo ID informado, removendo da lista Ativa
+        /// </summary>
         private static void RemoverLivro()
         {
             Console.WriteLine("Remoção de exemplar/livro do catálogo");
@@ -186,6 +223,63 @@ namespace InterfaceBiblioteca
 
             Console.WriteLine("Exemplar removido!");//retorna mensagem apos remover/desativar usuario
             Console.ReadKey();
+        }
+        /// <summary>
+        /// Atualiza informações de um livro, informado pelo ID da lista
+        /// </summary>
+        public static void AtualizarLivro()
+        {
+            Console.WriteLine("Atualizar Exemplar");
+            ListagemLivros();//mostra a lista para identificar o ID que sera alterado
+            Console.WriteLine("Informe o ID do exemplar a ser alterado:");
+            var livId = int.Parse(Console.ReadLine());//informa ID para alterar
+            //cria variavel para comparar e encontra ID
+            var atualiz = livroController.GetLivros().FirstOrDefault(x => x.Id == livId);
+
+
+            if (atualiz == null)
+            {
+                Console.WriteLine("ID informado inválido");
+                return;
+            }
+            Console.WriteLine("Informe o Nome do exemplar:");
+            atualiz.Nome = Console.ReadLine();
+
+            var resultado = livroController.AtualizarLivro(atualiz);
+            // apenas mostra mensagem ao final da tentativa de atualizar um produto
+            if (resultado)
+                Console.WriteLine("Exemplar Atualizado com sucesso!");
+            else
+                Console.WriteLine("Erro ao atualizar exemplar.");
+
+        }
+        public static void AtualizarUsuario()
+        {
+            Console.WriteLine("Atualizar Exemplar");
+            ListagemUsuarios();//mostra a lista para identificar o ID que sera alterado
+            Console.WriteLine("Informe o ID do usuário a ser alterado:");
+            var usuId = int.Parse(Console.ReadLine());//informa ID para alterar
+            //cria variavel para comparar e encontra ID
+            var atualiz = usuarioController.GetUsuarios().FirstOrDefault(x => x.Id == usuId);
+
+
+            if (atualiz == null)
+            {
+                Console.WriteLine("ID informado inválido");
+                return;
+            }
+            Console.WriteLine("Informe o Login novo:");
+            atualiz.Login = Console.ReadLine();
+            Console.WriteLine("Informe a Senha nova:");
+            atualiz.Login = Console.ReadLine();
+
+            var resultado = usuarioController.AtualizarUsuario(atualiz);
+            // apenas mostra mensagem ao final da tentativa de atualizar um produto
+            if (resultado)
+                Console.WriteLine("Exemplar Atualizado com sucesso!");
+            else
+                Console.WriteLine("Erro ao atualizar exemplar.");
+
         }
 
     }
