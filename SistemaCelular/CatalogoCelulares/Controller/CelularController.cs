@@ -17,7 +17,7 @@ namespace CatalogoCelulares.Controller
         /// <returns></returns>
         public IQueryable<Celular> GetCelulares()
         {
-            return contextDB.Celulares.Where(x => x.Ativo ==true);
+            return contextDB.Celulares.Where(x => x.Ativo ==true);// nao precisaria do '== true', como padrao ja seria TRUE
         }
         //atualizacao
         /// <summary>
@@ -34,7 +34,7 @@ namespace CatalogoCelulares.Controller
             if (celular == null)
                 return false;
             else
-            celular = item;
+            //celular = item;
             celular.DataAlteracao = DateTime.Now;
             contextDB.SaveChanges();// salva apos confirmar IDs iguais
             return true;

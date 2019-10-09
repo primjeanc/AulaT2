@@ -43,26 +43,37 @@ namespace InterfaceBiblioteca
                 Console.WriteLine("SISTEMA DE LOCAÇÃO DE LIVROS 1.0");
                 //Mostras as opcoes do menu em sistema
                 Console.WriteLine("Menu Sistema:");
-                
-                Console.WriteLine("1 - Listar Livros");                
-                Console.WriteLine("2 - Cadastrar Livro");
-                Console.WriteLine("3 - Atualizar Livros");                
-                Console.WriteLine("4 - Remover Livro");
+                Console.WriteLine("1 - Listar usuários");
+                Console.WriteLine("2 - Listar Livros");
+                Console.WriteLine("3 - Cadastrar Usuários");
+                Console.WriteLine("4 - Cadastrar Livros");
+                Console.WriteLine("5 - Troca de Usuário");
+                Console.WriteLine("6 - Remover Usuário");
+                Console.WriteLine("7 - Remover Livro");
                 Console.WriteLine("0 - Sair");
                 opcao = int.Parse(Console.ReadKey(true).KeyChar.ToString());
                 switch (opcao)
                 {
-                    
+
                     case 1:
-                        ListagemLivros(); Console.ReadKey();
-                        break;                    
+                        ListagemUsuarios(); Console.ReadKey();
+                        break;
                     case 2:
-                        AdicionarLivro(); 
+                        ListagemLivros(); Console.ReadKey();
                         break;
                     case 3:
-                        //CadastraLivro();
+                        CadastraUsuario(); Console.ReadKey();
                         break;
                     case 4:
+                        CadastraLivro(); 
+                        break;
+                    case 5:
+                        TrocaDeUsuario(); 
+                        break;
+                    case 6:
+                        RemoverUsuario();
+                        break;
+                    case 7:
                         RemoverLivro();
                         break;
 
@@ -109,72 +120,70 @@ namespace InterfaceBiblioteca
         /// </summary>
         private static void ListagemLivros()//"Retorna..Livros" =private List<Livro> ListaDeLivros {get;set;} mas usado em metodo PUBLIC para conseguir LER e nao ESCREVER
         {
-            livroController.GetLivros().ToList().ForEach(l => Console.WriteLine($"ID: {l.Id} -- Nome: {l.Nome}"));//imprime todos os livros cadastrados
+            livroController.RetornaListaDeLivros().ForEach(l => Console.WriteLine($"ID: {l.Id} -- Nome: {l.Nome}"));//imprime todos os livros cadastrados
         }
-        //private static void ListagemUsuarios()
-        //{
-        //    //mostra a lista de usuarios ja cadastrados
-        //    Console.Clear();
-        //    usuarioController.RetornaListaDeUsuarios().ForEach(i => Console.WriteLine($"ID: {i.Id} -- Login: {i.Login}"));
+        private static void ListagemUsuarios()
+        {
+            //mostra a lista de usuarios ja cadastrados
+            Console.Clear();
+            usuarioController.RetornaListaDeUsuarios().ForEach(i => Console.WriteLine($"ID: {i.Id} -- Login: {i.Login}"));
             
-        //}
+        }
         /// <summary>
         /// Metodo que cadastra usuarios pelo programa acessando e registrando na lista da classe
         /// </summary>
-        //private static void CadastraUsuario()
-        //{
+        private static void CadastraUsuario()
+        {
             
-        //    Usuario usuario = new Usuario();// inicia objeto'usuario' (lista)
-        //    Console.WriteLine("Login a ser cadastrado:");
-        //    usuario.Login = Console.ReadLine();
-        //    Console.WriteLine("Senha a ser cadastrada:");
-        //    usuario.Senha = Console.ReadLine();
-        //    Console.WriteLine("Cadastrado com sucesso!");
-        //    new Usuario() //lista (um ou mais objetos)
-        //    {
-        //        Login = usuario.Login,
-        //        Senha = usuario.Senha,
-        //        Ativo = true                
-        //    };
-        //    usuarioController.AdicionaUsuario(usuario);
-        //}
+            Usuario usuario = new Usuario();// inicia objeto'usuario' (lista)
+            Console.WriteLine("Login a ser cadastrado:");
+            usuario.Login = Console.ReadLine();
+            Console.WriteLine("Senha a ser cadastrada:");
+            usuario.Senha = Console.ReadLine();
+            Console.WriteLine("Cadastrado com sucesso!");
+            new Usuario() //lista (um ou mais objetos)
+            {
+                Login = usuario.Login,
+                Senha = usuario.Senha,
+                Ativo = true                
+            };
+            usuarioController.AdicionaUsuario(usuario);
+        }
 
         /// <summary>
         /// Metodo que adiciona ("cadastra") novos livros 
         /// </summary>
-
-        public static void AdicionarLivro()
+        private static void CadastraLivro()
         {
             Console.WriteLine("Cadastrar livro em sistema:");
-            Console.WriteLine("Informe o Nome:");
-            var novo = Console.ReadLine();       
-
-            var resultado = livroController.AddLivro(new Livro()
-            { Nome = novo});
-            if (resultado)
-                Console.WriteLine("Livro cadastrado com sucesso!");
-            else
-                Console.WriteLine("Erro ao cadastrar...");
-
+            Console.WriteLine("Informe o título de livro");
+            var nomeDoLivro = Console.ReadLine();
+            livroController.AdicionarLivro(new Livro()//livroControler objeto(variavel) que recebeu a CLASSE LISTA LivroController
+            {
+                Nome = nomeDoLivro //,
+                //Id = livroController.ListaDeLivros.Count+1
+            });
+            Console.WriteLine("Livro cadastrado com sucesso.");
+            Console.ReadKey();
         }
 
         /// <summary>
         /// Metodo que desativa registro (troca Ativo TRUE por FALSE
         /// ocultando da lista pois a mesma retorna apenas ativo igual a true
         /// </summary>
-        //private static void RemoverUsuario()
-        //{
-        //    Console.WriteLine("Desativação de Usuários");
-        //    ListagemUsuarios();//chama o metodo que ja mostrava lista de usuarios
-        //    Console.WriteLine("Informe o ID do usuário a ser desativado:");
-        //    var usuarioID = int.Parse(Console.ReadLine());
-        //    //metodo da classe recebe variavel INT "usuarioID" do programa para conferir remocao
-        //    usuarioController.RemoverUsuarioPorID(usuarioID);
+        private static void RemoverUsuario()
+        {
+            Console.WriteLine("Desativação de Usuários");
+            ListagemUsuarios();//chama o metodo que ja mostrava lista de usuarios
+            Console.WriteLine("Informe o ID do usuário a ser desativado:");
+            var usuarioID = int.Parse(Console.ReadLine());
+            //metodo da classe recebe variavel INT "usuarioID" do programa para conferir remocao
+            usuarioController.RemoverUsuarioPorID(usuarioID);
 
-        //    Console.WriteLine("Usuário desativado!");//retorna mensagem apos remover/desativar usuario
-        //    Console.ReadKey();
+            Console.WriteLine("Usuário desativado!");//retorna mensagem apos remover/desativar usuario
+            Console.ReadKey();
 
-        //}
+        }
         private static void RemoverLivro()
         {
             Console.WriteLine("Remoção de exemplar/livro do catálogo");

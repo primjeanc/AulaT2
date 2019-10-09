@@ -14,7 +14,12 @@ namespace LocacaoBiblioteca.Controller
     {
         private LocacaoContext contextDB = new LocacaoContext();//contextDB recebe LocacaoContext para que 
         //o conteudo de LocacaoContext (como ListaDeUsuaris) seja acessivel em 'contextDB.Lista...'
-               
+        public UsuarioController()
+        {
+            
+            
+        }
+        
         /// <summary>
         /// Metodo que realiza o login dentro do nosso sistema
         /// Para realizar login padrao use:
@@ -26,9 +31,7 @@ namespace LocacaoBiblioteca.Controller
         public bool LoginSistema(Usuario usuarios)//Usuarios= id,login,senha etc
         {
             //como a lista ja foi inicializada e salva na memoria na propria classe, o teste na LISTA de USUARIOS fica mais simples
-
-            return contextDB.Usuarios.Exists(u => u.Login == usuarios.Login && u.Senha == usuarios.Senha);
-           
+            return contextDB.ListaDeUsuarios.Exists(u => u.Login == usuarios.Login && u.Senha == usuarios.Senha);
             /*if (usuarios.Login == "Admin" && usuarios.Senha == "Admin")
                 return true;
             else
@@ -37,8 +40,8 @@ namespace LocacaoBiblioteca.Controller
         
         public void AdicionaUsuario(Usuario usuario)//cadastro de usuario na lista criada acima "ListaDeUsuarios"
         {
-            //usuario.Id = contextDB.IdContador++;
-            contextDB.Usuarios.Add(usuario);
+            usuario.Id = contextDB.IdContador++;
+            contextDB.ListaDeUsuarios.Add(usuario);
         }
         /// <summary>
         /// Metodo publico pra mostrar ListaDeUsuarios ATIVOS(que esta privada na CLASSE para evitar acesso externo)
@@ -46,7 +49,7 @@ namespace LocacaoBiblioteca.Controller
         /// <returns></returns>
         public List<Usuario> RetornaListaDeUsuarios()
         {
-            return contextDB.Usuarios.Where(x => x.Ativo).ToList<Usuario>();
+            return contextDB.ListaDeUsuarios.Where(x => x.Ativo).ToList<Usuario>();
         }
         /// <summary>
         /// Metodo que desativa um regstro de usuario cadastrado em nossa lista
@@ -56,7 +59,7 @@ namespace LocacaoBiblioteca.Controller
         {
             //aqui usamos FirstOrDefault para localiza nosso usuario dentro da lista
             //com isso conseguimos acessar as propriedades dele e desativar o registro
-            contextDB.Usuarios.FirstOrDefault(x => x.Id == intentificadoID).Ativo = false;
+            contextDB.ListaDeUsuarios.FirstOrDefault(x => x.Id == intentificadoID).Ativo = false;
         }
     }
 }
