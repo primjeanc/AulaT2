@@ -8,7 +8,7 @@ namespace CodeFirstTest.Model
     public partial class CervejaContextDb : DbContext
     {
         public CervejaContextDb(string conexao)
-            : base(conexao)//aqui alteramos nosso construtor de
+            : base(conexao)//aqui alteramos nosso construtor de " dbcontext para
         {
         }
 
