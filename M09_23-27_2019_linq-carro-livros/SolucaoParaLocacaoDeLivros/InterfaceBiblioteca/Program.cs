@@ -13,21 +13,27 @@ namespace InterfaceBiblioteca
     {              
         static LivroController livroController = new LivroController();//Instanciamos "Carregamos para memoria, nosso controlador de livros
         static UsuarioController usuarioController = new UsuarioController();
-
+        static Usuario logado = null; //objeto que ira receber a informacao do login para apresentar quem esta logado
         static void Main(string[] args)
         {
-
+            
             Console.WriteLine("SISTEMA DE LOCAÇÃO DE LIVROS 1.0");
-            //TrocaDeUsuario();
+            TrocaDeUsuario();
             MostraMenuSistema();
             Console.ReadKey();
 
         }
-        //private static void TrocaDeUsuario()// chama o teste de usuario, caso login/senha INVALIDOS, fica travado no login e acessa MENU
-        //{
-        //    while (!RealizaLoginSistema())
-        //        Console.WriteLine("Login ou senha inválido.");
-        //}
+        private static void TrocaDeUsuario()// chama o teste de usuario, caso login/senha INVALIDOS, fica travado no login e acessa MENU
+        {
+            //while (RealizaLoginSistema()== null)
+            //    Console.WriteLine("Login ou senha inválido.");
+            
+            logado = RealizaLoginSistema();
+            while (logado == null)
+            {
+                logado = RealizaLoginSistema();
+            }
+        }
 
         /// <summary>
         /// Mostra no Console o Menu apos logar em sistema
@@ -42,16 +48,19 @@ namespace InterfaceBiblioteca
                 Console.Clear();
                 Console.WriteLine("SISTEMA DE LOCAÇÃO DE LIVROS 1.0");
                 //Mostras as opcoes do menu em sistema
+                
                 Console.WriteLine("Menu Sistema:");
+                Console.WriteLine($"Conectado: [{logado.Login}]");
                 
                 Console.WriteLine("1 - Listar Livros");                
                 Console.WriteLine("2 - Cadastrar Livro");
                 Console.WriteLine("3 - Atualizar Livros");                
                 Console.WriteLine("4 - Remover Livro");
                 Console.WriteLine("5 - Listar Usuarios");
-                //Console.WriteLine("6 - Cadastrar Usuário");
-                //Console.WriteLine("7 - Atualizar Usuários");
+                Console.WriteLine("6 - Cadastrar Usuário");
+                Console.WriteLine("7 - Atualizar Usuários");
                 Console.WriteLine("8 - Remover Usuário");
+                Console.WriteLine("9 - Trocar de Usuário");
                 Console.WriteLine("0 - Sair");
                 opcao = int.Parse(Console.ReadKey(true).KeyChar.ToString());
                 switch (opcao)
@@ -76,10 +85,13 @@ namespace InterfaceBiblioteca
                         AdicionarUsuario();
                         break;
                     case 7:
-                        AtualizarLivro();//
+                        AtualizarUsuario();
                         break;
                     case 8:
                         RemoverUsuario();
+                        break;
+                    case 9:
+                        TrocaDeUsuario();
                         break;
                     case 0:
                         return;
@@ -93,7 +105,7 @@ namespace InterfaceBiblioteca
         /// Realiza login em sistema [entrando login/senha]. Retorna teste TRUE/FALSE do login [validação]
         /// </summary>
         /// <returns>Returna  TRUE-FALSE quando informado login e senha</returns>
-        private static bool RealizaLoginSistema()
+        private static Usuario RealizaLoginSistema()
         {
 
             Console.WriteLine("Informe seu login e senha para acessar o sistema:");
@@ -105,17 +117,12 @@ namespace InterfaceBiblioteca
 
             //UsuarioController usuarioController = new UsuarioController();//esse cara esta RESETANDO A LISTA NA HORA DE VALIDAR NOVOSO USUARIOS
             //o sistema cadastra usuarios e lista eles, mas quando vai LOGAR, os novos logins nao funcionam
-            /*
-             * Usuario usuario = new Usuario();//objeto usuario recebe Classe Usuario inicializada 'new'
+            /* * Usuario usuario = new Usuario();//objeto usuario recebe Classe Usuario inicializada 'new'
             usuario.Login = loginDoUsuario;//atribui Login ao loginDoUsuario
             usuario.Senha = senhaDoUsuario;
             *///item para senhaDo...
 
-            return usuarioController.LoginSistema(new Usuario()
-            {
-                Login = loginDoUsuario,
-                Senha = senhaDoUsuario
-            });
+            return usuarioController.GetUsuarios().FirstOrDefault(x => x.Login == loginDoUsuario && x.Senha == senhaDoUsuario);
 
         }
 
@@ -136,26 +143,6 @@ namespace InterfaceBiblioteca
             usuarioController.GetUsuarios().ToList<Usuario>().ForEach(v =>
             Console.WriteLine(String.Format(template, v.Id, v.Login, v.Senha)));
         }
-        /// <summary>
-        /// Metodo que cadastra usuarios pelo programa acessando e registrando na lista da classe
-        /// </summary>
-        //private static void CadastraUsuario()
-        //{
-
-        //    Usuario usuario = new Usuario();// inicia objeto'usuario' (lista)
-        //    Console.WriteLine("Login a ser cadastrado:");
-        //    usuario.Login = Console.ReadLine();
-        //    Console.WriteLine("Senha a ser cadastrada:");
-        //    usuario.Senha = Console.ReadLine();
-        //    Console.WriteLine("Cadastrado com sucesso!");
-        //    new Usuario() //lista (um ou mais objetos)
-        //    {
-        //        Login = usuario.Login,
-        //        Senha = usuario.Senha,
-        //        Ativo = true                
-        //    };
-        //    usuarioController.AdicionaUsuario(usuario);
-        //}
 
         /// <summary>
         /// Metodo que adiciona ("cadastra") novos livros 
@@ -271,12 +258,12 @@ namespace InterfaceBiblioteca
             Console.WriteLine("Informe o Login novo:");
             atualiz.Login = Console.ReadLine();
             Console.WriteLine("Informe a Senha nova:");
-            atualiz.Login = Console.ReadLine();
+            atualiz.Senha = Console.ReadLine();
 
             var resultado = usuarioController.AtualizarUsuario(atualiz);
             // apenas mostra mensagem ao final da tentativa de atualizar um produto
             if (resultado)
-                Console.WriteLine("Exemplar Atualizado com sucesso!");
+                Console.WriteLine("Atualizado com sucesso!");
             else
                 Console.WriteLine("Erro ao atualizar exemplar.");
 
