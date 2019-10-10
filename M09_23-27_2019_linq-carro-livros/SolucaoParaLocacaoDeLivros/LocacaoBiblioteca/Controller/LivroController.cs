@@ -14,13 +14,19 @@ namespace LocacaoBiblioteca.Controller
         public IQueryable<Livro> GetLivros()
         {
             return contextDB.Livros.Where(x => x.Ativo == true);
-        }      
+        }
+        /// <summary>
+        /// Metodo para adicionar livros, ele impede nomes em branco e adiciona/salva no Bando(db)
+        /// A inserção de nome/titulo do livro fica no programa, chamando AddLivros para salvar no final
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public bool AddLivro(Livro item)
         {
             if (string.IsNullOrWhiteSpace(item.Nome))// metodo que identifica espacos em branco
                 return false;
            
-            contextDB.Livros.Add(item);
+            contextDB.Livros.Add(item);// parte final do adicionar, ela insere na tabela e salva com o comando abaixo
             contextDB.SaveChanges();
             
             return true;
@@ -53,9 +59,8 @@ namespace LocacaoBiblioteca.Controller
         }
         public bool AtualizarLivro(Livro item)
         {
-            var book =//variavel para o livro
-            contextDB.Livros.FirstOrDefault(x => x.Id == item.Id);
-            //BD      tabela    busca na tabela o livro
+            var book = contextDB.Livros.FirstOrDefault(x => x.Id == item.Id);
+            //           BD      tabela    busca na tabela o livro
             //Compara os IDs e verifica se encontrou o livro
             if (book == null)
                 return false;

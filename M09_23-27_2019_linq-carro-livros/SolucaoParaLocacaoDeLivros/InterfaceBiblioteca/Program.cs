@@ -13,11 +13,11 @@ namespace InterfaceBiblioteca
     {              
         static LivroController livroController = new LivroController();//Instanciamos "Carregamos para memoria, nosso controlador de livros
         static UsuarioController usuarioController = new UsuarioController();
-        static Usuario logado = null; //objeto que ira receber a informacao do login para apresentar quem esta logado
+        static Usuario logado = null; //classe.objeto que ira receber a informacoes do login para apresentar quem esta logado
         static void Main(string[] args)
         {
             
-            Console.WriteLine("SISTEMA DE LOCAÇÃO DE LIVROS 1.0");
+            Console.WriteLine("SISTEMA DE LOCAÇÃO DE LIVROS 2.0");
             TrocaDeUsuario();
             MostraMenuSistema();
             Console.ReadKey();
@@ -46,7 +46,7 @@ namespace InterfaceBiblioteca
             while (opcao != 0)//Menu em LOOP até que aperte 0 "zero"
             {
                 Console.Clear();
-                Console.WriteLine("SISTEMA DE LOCAÇÃO DE LIVROS 1.0");
+                Console.WriteLine("SISTEMA DE LOCAÇÃO DE LIVROS 2.0");
                 //Mostras as opcoes do menu em sistema
                 
                 Console.WriteLine("Menu Sistema:");
@@ -132,9 +132,9 @@ namespace InterfaceBiblioteca
         private static void ListagemLivros()//"Retorna..Livros" =private List<Livro> ListaDeLivros {get;set;} mas usado em metodo PUBLIC para conseguir LER e nao ESCREVER
         {
             //livroController.GetLivros().ToList().ForEach(l => Console.WriteLine($"ID: {l.Id} -- Nome: {l.Nome}"));//imprime todos os livros cadastrados
-            string template = "ID: {0,-3} | Nome: {1,-30} ";
+            string template = "ID: {0,-3} | Nome: {1,-35} | Ultima Atualização:{2,20}";
             livroController.GetLivros().ToList<Livro>().ForEach(v => 
-            Console.WriteLine(String.Format(template, v.Id, v.Nome)));
+            Console.WriteLine(String.Format(template, v.Id, v.Nome, v.DataAlteracao)));
         }
         private static void ListagemUsuarios()//"Retorna..Livros" =private List<Livro> ListaDeLivros {get;set;} mas usado em metodo PUBLIC para conseguir LER e nao ESCREVER
         {
