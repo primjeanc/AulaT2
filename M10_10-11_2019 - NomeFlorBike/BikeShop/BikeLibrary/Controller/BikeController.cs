@@ -18,10 +18,8 @@ namespace BikeLibrary.Controller
         }
 
         public bool AddBike(Bike item)
-        {
-            if (string.IsNullOrWhiteSpace(item.Marca))// metodo que identifica espacos em branco
-                return false;
-            if (string.IsNullOrWhiteSpace(item.Modelo))// metodo que identifica espacos em branco
+        {            
+            if (item.IdModelo <= 0)//impede valores 0 ou negativos
                 return false;
             if (item.Valor <= 0)//impede valores 0 ou negativos
                 return false;

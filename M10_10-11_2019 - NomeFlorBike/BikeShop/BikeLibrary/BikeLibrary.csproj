@@ -52,8 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\BikeController.cs" />
+    <Compile Include="Controller\MarcaController.cs" />
+    <Compile Include="Controller\ModeloController.cs" />
     <Compile Include="Model\Bike.cs" />
     <Compile Include="Model\BikeContext.cs" />
+    <Compile Include="Model\Controle.cs" />
     <Compile Include="Model\Marca.cs" />
     <Compile Include="Model\Modelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

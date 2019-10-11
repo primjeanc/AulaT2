@@ -7,16 +7,12 @@ using System.Threading.Tasks;
 
 namespace BikeLibrary.Model
 {
-    public class Modelo
+    public class Marca:Controle
     {
         [Key]
-        public int Id { get; set; }
-        [Required]
-        public int IdMarca { get; set; }
-
-        //public Marca IdMarca {get;set;} //??
+        public int Id { get; set; }            
         [Required]
         [MaxLength(25)]
-        public string Nome { get; set; }        
+        public string Nome { get; set; }
     }
 }

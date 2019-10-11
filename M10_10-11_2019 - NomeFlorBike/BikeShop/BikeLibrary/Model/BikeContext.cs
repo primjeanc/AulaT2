@@ -10,5 +10,8 @@ namespace BikeLibrary.Model
     class BikeContext:DbContext
     {
         public DbSet<Bike> Bikes { get; set; }
+        public DbSet<Marca> Marcas { get; set; }
+        public DbSet<Modelo> Modelos { get; set; }
+
     }
 }
