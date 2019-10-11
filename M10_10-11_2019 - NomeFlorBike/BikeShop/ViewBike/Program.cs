@@ -44,7 +44,7 @@ namespace ViewBike
             bikeController.GetBikes().ToList<Bike>().ForEach(v =>
             Console.WriteLine(String.Format(template, v.Id, v.Valor.ToString("C2"), v.IdModelo)));
 
-            //var bikeQuerys = bikeController.GetBikes();
+            var bikeQuerys = bikeController.GetBikes();
             //var modeloQuerys = modeloController.GetModelos();
 
             //var queryResult = from bike in bikeQuerys
