@@ -1,0 +1,61 @@
+<style>
+    #documento{
+        height: 80mm;
+        width: 120mm;
+        text-align:center;        
+        position:absolute;        
+        left:25%;
+        top:25%;
+        box-shadow:1px 1px 8px #808080;  
+        background-color:#ffffffd0;
+        border: 3px solid green;    
+    }
+     #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        #acesso_login {
+            width: 50%;
+            left: 20%;
+            text-align: center;
+            text-align: justify;
+            box-shadow: 1px 1px 8px #000000;
+            background-color: #fffffff0;
+        }
+    }
+</style>
+<html>
+<head>
+    <title>Tela</title>
+</head>
+<body>
+    <!-- The video -->
+    <video autoplay muted loop id="myVideo">
+        <source src="CIRCULAR_INTERFACE_HUD.mp4" type="video/mp4">
+    </video>
+
+    <div id="documento">
+        <div id="titulo">
+            <h1 style="text-align:center">ACESSO</h1>
+        </div>
+        <div id="acesso_login">
+            <span>Login: </span><input type="text" name="Login" value="informe Login" /><br />
+            <span>Senha: </span><input type="password" name="senha" value="informe senha" /><br />
+            <div id="botao">
+                <br /><br />
+                <button onclick="alert('Não funciona trouxa')">Confirma</button>
+            </div>
+        </div>
+        <div id="conteudo">
+        </div>
+    </div>
+</body>
+</html>
+
+
+
