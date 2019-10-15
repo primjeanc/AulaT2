@@ -1,4 +1,4 @@
-Ôªø<!doctype html>
+<!doctype html>
 
 <html lang="en">
 
@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Formul√°rio</title>
+    <title>Formul·rio</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
@@ -18,7 +18,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="card align-middle" style="background: #ffffffc7;">
                         <div class="card-header">
-                            Formul√°rio
+                            Formul·rio
                         </div>
                         <div class="col-md-12 card-body">
                             <div class="row form-group">
@@ -27,21 +27,10 @@
                                 </div>
                             </div>
                             <div class="row form-group">
-                                <div class="col-md-8">
-                                    <input type="text" class="w-100 form-control" name="nacionalidade" placeholder="Nacionalidade" />
-                                </div>
-                                <div class="col-md-4">
+                                <div class="col-md-12">
                                     <input type="number" class="w-100 form-control" name="idade" placeholder="Idade" />
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col-md-6">
-                                    <input type="text" name="cpf" class="w-100 form-control" placeholder="Informe seu cpf" />
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="date" class="w-100 form-control" name="datanascimento" />
-                                </div>
-                            </div>
+                                </div>                                
+                            </div>    
                             <div class="row form-group">
                                 <div class="col-md-12">
                                     <input type="button" class="w-100 btn btn-primary" name="enviar" value="enviar" />
@@ -59,35 +48,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
     <script>
         $(document).ready(
-            function () {
-                $('input[name="cpf"]').mask("000.000.000-00");
+            function () {                
                 /*inserimos nome*/
                 $('input[type="button"]').click(
                     function () {
                         var idade = $('input[name="idade"]').val();
                         var nome = $('input[name="nome"]').val();
                         if (idade < 18) {
-                            alert("menor de 18 anos");
-                            window.location = "http://tirol.com.br/";
-                        } else { alert("ol√° " + nome) };
+                            alert("menor de 18 anos");                            
+                        } else { alert("ol· " + nome) };
                     }
-                        
+
                         )
             })
-        
-        
+
+
 
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
