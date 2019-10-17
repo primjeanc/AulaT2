@@ -7,7 +7,10 @@ function convertendo() {
     var fvalor = document.getElementById("reais").value / 4.00;  
 }
 function convertREAL() {
-    var cvalor = (parseFloat(document.getElementById("reais").value / 4.05)).toFixed(2);
+    var cvalor = (parseFloat(document.getElementById("reais").value / 4.05))
+        //.replace(".","")
+        //.replace(".", "")
+        .toFixed(2);
     $('input[id="money"]').val(cvalor);
-
+    //$('input[name="reais"]').mask("000.000,00")
 }
