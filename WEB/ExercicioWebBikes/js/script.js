@@ -18,6 +18,10 @@ $(document).ready(
         });
     }
 );
+function LimparTela() {
+    var meusInputs = $('input[type="text"]');
+    meusInputs.val("");
+}
 //$(document).on('keypress', function (e) {
 //    if (e.which == 13) {
 //        $('button[name="btnboasvindas"]').click();

@@ -1,4 +1,5 @@
 /* Ao carregar nosso site por completo executa o conteudo do $(document).ready()*/
+
 $(document).ready(
     function () {
         $('button[name="bntmostrar"]').click(function () {
@@ -20,6 +21,12 @@ $(document).ready(
         });
     }
 );
+function LimparTela() {
+    var meusInputs = $('input[type="text"]');    
+        meusInputs.val("");    
+}
+
+
 //$(document).on('keypress', function (e) {
 //    if (e.which == 13) {
 //        $('button[name="btnboasvindas"]').click();

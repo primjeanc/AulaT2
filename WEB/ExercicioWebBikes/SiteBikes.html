@@ -1,5 +1,11 @@
 ﻿<!DOCTYPE html>
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,7 +49,9 @@
                     </div>
                 </div>
                 <div class="row">
-                    <button class="w-50 mb-6 btn btn-success form-group" data-toggle="modal" data-target="#exampleModal" name="bntsalvar" id="bntsalvar">Salvar</button>
+                    <!--<button class="w-50 mb-6 btn btn-success form-group" data-toggle="modal" data-target="#exampleModal" name="bntsalvar" id="bntsalvar" onclick="window.open('https://media0.giphy.com/media/l1J9Dsrjr13I6d84M/giphy.gif','_blank')">Salvar</button>-->
+                    <button class="w-50 mb-6 btn btn-success form-group" data-toggle="modal" data-target="#exampleModal" name="bntsalvar" id="bntsalvar" onclick="play()">Salvar</button>
+                    <img src="https://media0.giphy.com/media/l1J9Dsrjr13I6d84M/giphy.gif" class="hidden" id="Unicorn">
                     <button class="w-50 mb-6 btn btn-success form-group" name="bntmostrar" id="bntmostrar">Mostrar</button>
                 </div>
             </div>
@@ -61,12 +69,12 @@
                 </div>
                 <div class="modal-body" id="modal-body">
                     <div>Marca: <span name="mmarca"></span></div>
-                    <div>Valor: <span name="mvalor"></span></div>                    
-                    <div>Peso: <span name="mpeso"></span></div>                    
-                                      
+                    <div>Valor: <span name="mvalor"></span></div>
+                    <div>Peso: <span name="mpeso"></span></div>
+
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>                   
+                    <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                 </div>
             </div>
         </div>
@@ -76,5 +84,29 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $.fn.center = function () {
+            this.css("position", "absolute");
+            this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + $(window).scrollTop()) + "px");
+            this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+            return this;
+        }
+        $("#bntsalvar").on("click", function () {
+            $("#Unicorn").fadeIn().center();
+            setTimeout(function () {
+                $("#Unicorn").fadeOut()
+            }, 3000);
+            //$("#exampleModal").modal("toogle");
+
+        });
+    </script>
+    <script>
+        function play() {
+            var audio = document.getElementById("audio");
+            audio.play();
+        }
+    </script>
+    <audio id="audio" src="https://www.youtube.com/watch?v=qvWxhhi0_yk"></audio>
 </body>
 </html>
