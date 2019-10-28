@@ -1,10 +1,11 @@
 ﻿$(document).ready(function () {
     $('input[name="bt1"]').on('click', function () {
-        var apeso = $('input[name="peso"]').val();
-        var anome = $('input[name="nome"]').val();
-        var aaltura = $('input[name="altura"]').val();
+        //var apeso = $('input[name="peso"]').val();
+        //var anome = $('input[name="nome"]').val();
+        //var aaltura = $('input[name="altura"]').val();
         var informacoes = $('form[name=form1st]').serialize();
-        $.get("http://localhost:60212/Api/CalculoIdade?" + informacoes, function (data) {
+        var url = "http://localhost:60212/Api/CalculoIdade?";
+        $.get(url + informacoes, function (data) {
             console.log(data);
 
             var imc = data.split(":")[1];

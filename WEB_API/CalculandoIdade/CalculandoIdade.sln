@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculandoIdade", "CalculandoIdade\CalculandoIdade.csproj", "{0C09BB18-BABC-4D1D-B2ED-992374BB8F89}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DA572006-92AE-4DD3-91C5-DEFEA65281AE}"
+	ProjectSection(SolutionItems) = preProject
+		Resumo-CriarAPI-ligarWEB.txt = Resumo-CriarAPI-ligarWEB.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

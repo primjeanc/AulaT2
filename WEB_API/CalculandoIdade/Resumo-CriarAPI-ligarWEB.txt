@@ -1,0 +1,40 @@
+PASSO A PASSO RESUMIDO PARA ATIVIDADE 1 e 2***************************
+**********************************************************************
+criar new solution, webAPI(c# web win etc)
+escoher WEBAPI , desmarcar http5, ok
+
+AGORA
+com solucao criada:
+selecionar pasta COntroller, add new scaffolded (webapi 2 acho):
+criando assim uma nova 'NOMEqualquer'controller
+
+Nessa controller vamos criar o metodo ( get()...return "blablabla"), lista valores etc para serem usados dessa API
+
+NO POSTMAN, 
+passamos o link gerado do API,
+damos GET para ver se a conexao deu certo e recebemos o 'return' de texto /calc
+
+
+para criar o HTML podemos criar uma solution WEB criando pastas css e js
+instalando bootstrap e jquery 
+OU 
+criando um HTML limpo adicionando links de jquery e bootstrap, css e js.
+
+no site html, criamos os inputs das informacoes necessarias do API, nome peso altura no caso,
+usando FORM facilita a criacao de uma url dinamica
+no script 
+1)button/input click()
+2)usando a get(URL, data) completa, adicionamos um alert(data) 
+3)depois abrimos o link deixando so a base URL sem a parte"?nome,peso..." etc usando informa
+
+LEMBRANDO QUE PARA TER ACESSO AO API, PRECISAMOS INSTALAR enableCors
+---
+Devemos executar este comando no console do NuGet
+Install-Package Microsoft.AspNet.WebApi.Cors
+
+No arquivo "WebApiConfig" vamos adicionar uma configuração para liberar o acesso 
+segue o comando que libera o acesso a nossa APIWEB  "config.EnableCors();"
+
+e em nossa controller devemos habilitar os metodos para o acesso com a seguinte notação
+[EnableCors(origins: "*", headers: "*", methods: "*")]   
+com este comando anterior  liberamos para todos os sites se conectar em nossa api
