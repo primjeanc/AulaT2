@@ -3,17 +3,25 @@
         var apeso = $('input[name="peso"]').val();
         var anome = $('input[name="nome"]').val();
         var aaltura = $('input[name="altura"]').val();
-        $.get("http://localhost:60212/Api/CalculoIdade?peso=" + apeso + "&altura=" + aaltura + "&nome=" + anome, function (data) {
+        var informacoes = $('form[name=form1st]').serialize();
+        $.get("http://localhost:60212/Api/CalculoIdade?" + informacoes, function (data) {
             console.log(data);
-            $('input[name="nome"]').val(data.nome);
-            $('input[name="altura"]').val(data.altura);
-            $('input[name="peso"]').val(data.peso);
-           
-            var imc = data.split(":")[1]; 
+
+            var imc = data.split(":")[1];
             $('input[name="meuimc"]').val(imc);
-            alert(data);
-           
+            
+
         });
+
+        //$.get("http://localhost:60212/Api/CalculoIdade?peso=" + apeso + "&altura=" + aaltura + "&nome=" + anome, function (data) {
+        //    console.log(data);           
+           
+        //    var imc = data.split(":")[1]; 
+        //    $('input[name="meuimc"]').val(imc);
+        //    //$('input[name="meuimc"]').val(data);
+        //    //alert(data);
+           
+        //});
     });
 });
 //$('input[name="bt1"]').on('click', function () {

@@ -22,7 +22,7 @@ namespace CalculandoIdade.Controllers
         {
             //string retorno = "Nada ocorreu";
             var imc = peso / (altura * altura);
-            return $"{nome}, baseado na sua altura {altura}m e peso {peso}Kg seu IMC é de: {imc}.";
+            return $"{nome}, baseado na sua altura {altura}m e peso {peso}Kg seu IMC é de: {Math.Round(imc,1)}";
 
         }
     }
