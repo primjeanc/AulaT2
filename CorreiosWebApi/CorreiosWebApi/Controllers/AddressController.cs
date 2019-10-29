@@ -79,7 +79,7 @@ namespace CorreiosWebApi.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok("Update realizado com sucesso!");
         }
 
         // POST: api/Address
