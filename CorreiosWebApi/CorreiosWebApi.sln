@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorreiosWebApi", "CorreiosWebApi\CorreiosWebApi.csproj", "{5C86C64D-62D6-432B-ADC3-E1FFFA16DBD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{16CD6065-F548-4972-AB02-3131C3871384}"
+	ProjectSection(SolutionItems) = preProject
+		DICAS.txt = DICAS.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C86C64D-62D6-432B-ADC3-E1FFFA16DBD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C86C64D-62D6-432B-ADC3-E1FFFA16DBD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C86C64D-62D6-432B-ADC3-E1FFFA16DBD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C86C64D-62D6-432B-ADC3-E1FFFA16DBD7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C2B06C6-299C-42B4-98C0-8E26C128DBBF}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,12 @@
+context pronto>>>>
+click pasta MODELS, add item, ADO NET Entity.....
+
+
+Criando Controller "pronto" com metodos e ligações context/banco >>>>>>>>>>
+
+click PASTA Controller,
+escolha: 	'controller'
+escolha:	Api2 ...entityFramework
+escolha a Classe do Model(nesse caso Pessoa)
+
+ele vai criar a controller ja com metodos get (listar), post 'add', deletar, modificar etc
