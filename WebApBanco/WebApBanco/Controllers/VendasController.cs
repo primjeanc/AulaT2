@@ -12,19 +12,10 @@ using WebApBanco.Models;
 
 namespace WebApBanco.Controllers
 {
-    public class VendasController : ApiController
+    public partial class VendasController : ApiController
     {
         private DataBaseContext db = new DataBaseContext();
 
-        [HttpGet]
-        [Route("Api/Vendas/OnlyNames")]
-        public object CustomCarrosQuery()
-        {
-            var lista = db.Marcas.ToList();
-            var retornoLista = from ab in lista
-                               select new { NomeMarca = ab.Nome };
-            return retornoLista;
-        }
         // GET: api/Vendas
         public IQueryable<Venda> GetVendas()
         {

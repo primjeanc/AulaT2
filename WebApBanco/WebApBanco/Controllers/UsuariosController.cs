@@ -12,19 +12,11 @@ using WebApBanco.Models;
 
 namespace WebApBanco.Controllers
 {
-    public class UsuariosController : ApiController
+    public partial class UsuariosController : ApiController
     {
         private DataBaseContext db = new DataBaseContext();
 
-        [HttpGet]
-        [Route("Api/Usuarios/OnlyNames")]
-        public object CustomUsuariosQuery()
-        {
-            var lista = db.Usuarios.ToList();
-            var retornoLista = from ab in lista
-                                select new { NomeUsuario = ab.Usuario1 };
-            return retornoLista;
-        }
+
         // GET: api/Usuarios
         public IQueryable<Usuario> GetUsuarios()
         {
