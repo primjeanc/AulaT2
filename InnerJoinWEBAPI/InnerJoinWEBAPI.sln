@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnerJoinWEBAPI", "InnerJoinWEBAPI\InnerJoinWEBAPI.csproj", "{3CEB10AF-12AD-48CD-A395-7C25996D610C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CEB10AF-12AD-48CD-A395-7C25996D610C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CEB10AF-12AD-48CD-A395-7C25996D610C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CEB10AF-12AD-48CD-A395-7C25996D610C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CEB10AF-12AD-48CD-A395-7C25996D610C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {020454C8-7E68-442F-8311-C1930695E230}
+	EndGlobalSection
+EndGlobal
