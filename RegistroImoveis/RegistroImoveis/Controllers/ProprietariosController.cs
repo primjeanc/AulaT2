@@ -19,6 +19,7 @@ namespace RegistroImoveis.Controllers
         // GET: api/Proprietarios
         public IQueryable<Proprietario> GetProprietarios()
         {
+           // db.Proprietarios.ToList().FindAll(x=>x.Date.Parse(DataNascimento.ToString()))
             return db.Proprietarios;
         }
 

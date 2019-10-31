@@ -29,11 +29,9 @@ namespace RegistroImoveis.Models
             if (FieldName == "DataNascimento")
             {
                 {
-                    if (DateTime.Parse(value.ToString()) >= DateTime.Now.AddYears(-18) &&
+                    if (DateTime.Parse(value.ToString()) >= DateTime.Now.AddYears(-18) ||
                             DateTime.Parse(value.ToString()) <= DateTime.Now.AddYears(-150))
-                    {
-                        //throw new Exception("Usuário já existente"); }
-                        //return base.IsValid(value, validationContext);
+                    {                       
                         return new ValidationResult("Data inválida, Menor de Idade ou Velho demais pra comprar alguma coisa =D");
                     }
                 }                
