@@ -10,8 +10,11 @@ namespace RegistroImoveis.Models
     {
         [Key]
         public int Id { get; set; }
+        [CustomValidator("Nome")]
         public string Nome { get; set; }
+        [EmailAddress]
         public string Email { get; set; }
+        [CustomValidator("DataNascimento")]
         public DateTime DataNascimento { get; set; }
     }
 }

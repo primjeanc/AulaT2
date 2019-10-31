@@ -16,10 +16,9 @@
 
         protected override void Seed(RegistroImoveis.Models.ContextDb context)
         {
-            //  This method will be called after migrating to the latest version.
+            //var listProprietarios = new List<Proprietario>(
+                       
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
             context.Proprietarios.AddOrUpdate(x => x.Nome, new Proprietario()
             {
                 Nome = "Ribonocleitu",               

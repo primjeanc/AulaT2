@@ -211,6 +211,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ContextDb.cs" />
+    <Compile Include="Models\CustomValidator.cs" />
     <Compile Include="Models\Imovel.cs" />
     <Compile Include="Models\Proprietario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
