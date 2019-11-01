@@ -36,7 +36,7 @@ namespace InnerJoinWEBAPI.Controllers
         [Route("Api/Vendas/VendasAnoUsu/{ano}")]
         public object CustomVendasAnoUsu(int ano)
         {
-            var lista1 = db.Vendas.ToList();
+            var lista1 = db.Vendas.Where(x=>x.DatInc.Year==ano).ToList();
             var lista2 = db.Carros.ToList();
             var lista3 = db.Usuarios.ToList();
             var conteudoRetorno = from ve in lista1
@@ -44,7 +44,7 @@ namespace InnerJoinWEBAPI.Controllers
                                   on ve.Carro equals ca.Id
                                   join usu in lista3
                                   on ve.UsuInc equals usu.Id
-                                  where ve.DatInc.Year == ano
+                                  //where ve.DatInc.Year == ano
                                   orderby ve.DatInc.Year
                                   select new
                                   {
