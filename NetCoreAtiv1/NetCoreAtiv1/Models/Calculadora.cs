@@ -12,7 +12,8 @@ namespace NetCoreAtiv1.Models
         public int Id { get; set; }
         public double Densidade { get; set; }
         public double Volume { get; set; }
-        public double Peso { get; set; }
+        public double Gravidade { get; set; } = 9.8;
+        public double Peso { get { return Densidade * Volume * Gravidade; } }
 
     }
 }

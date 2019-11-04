@@ -13,14 +13,14 @@ namespace NetCoreAtiv1.Controllers
     [ApiController]
     public partial class CalculadorasController : ControllerBase
     {
-        [HttpGet]
-        [Route("pesofinal")]
-        public object GetPeso(Calculadora item)
-        {
-            var grav = 9.8;
-            item.Peso = item.Densidade * item.Volume * grav;
-            return item;
-        }
+        //[HttpGet]
+        //[Route("pesofinal")]
+        //public object GetPeso(Calculadora item)
+        //{
+        //    var grav = 9.8;
+        //    item.Peso = item.Densidade * item.Volume * grav;
+        //    return item;
+        //}
         private readonly WebApiContext _context;
 
         public CalculadorasController(WebApiContext context)
